@@ -72,5 +72,18 @@ namespace ArchiveScanTool
             folder[0] = folder[0].ToUpper();
             return folder;
         }
+
+        //private void UpdateDataBase()
+        //{
+        //    OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source = C:\\Users\\marti\\OneDrive\\Documents\\GitHub\\ArchiveScanTool\\ArchiveScanTool\\bin\\Debug\\norddt.accdb");
+        //
+        //    OleDbCommand cmd = con.CreateCommand();
+        //    con.Open();
+        //    cmd.CommandText = "Insert into Student(FirstName,LastName)Values('" + textBox1.Text + "','" + textBox2.Text + "')";
+        //    cmd.Connection = con;
+        //    cmd.ExecuteNonQuery();
+        //    MessageBox.Show("Record Submitted", "Congrats");
+        //    con.Close();
+        //}
     }
 }
