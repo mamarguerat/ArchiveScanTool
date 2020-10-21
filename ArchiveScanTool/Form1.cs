@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.IO;
 
 namespace ArchiveScanTool
 {
     public partial class Form1 : Form
     {
+        string workingPath;
         process process = new process();
         public Form1()
         {
@@ -21,7 +23,9 @@ namespace ArchiveScanTool
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            process.ProcessFile();
+            workingPath = Directory.GetCurrentDirectory();
+            textBoxPath.Text = workingPath;
+            //process.ProcessFile();
         }
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
@@ -34,6 +38,16 @@ namespace ArchiveScanTool
                 "\r\n" +
                 "© mamarguerat - 2020",
                 "A propos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogPath.ShowDialog() == DialogResult.OK)
+            {
+                workingPath = Path.GetDirectoryName(openFileDialogPath.FileName);
+                textBoxPath.Text = workingPath;
+                //Clear file list !!!!!
+            }
         }
     }
 }
