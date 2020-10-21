@@ -49,5 +49,18 @@ namespace ArchiveScanTool
                 //Clear file list !!!!!
             }
         }
+
+        private void buttonImport_Click(object sender, EventArgs e)
+        {
+            FileSelection fileSelection = new FileSelection();
+            string[] files = Directory.GetFiles(workingPath, "*.pdf");
+            string[] fileNames = new string[files.Length];
+            for (int i= 0; i<files.Length;i++)
+            {
+                fileNames[i] = files[i].Substring(workingPath.Length + 1);
+            }
+            fileSelection.FileNames = fileNames;
+            fileSelection.ShowDialog();
+        }
     }
 }

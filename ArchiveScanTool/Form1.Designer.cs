@@ -36,7 +36,6 @@
             this.afficherLesDétailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listViewFiles = new System.Windows.Forms.ListView();
             this.buttonRunScript = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonImport = new System.Windows.Forms.Button();
@@ -60,6 +59,7 @@
             this.textBoxDestination = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.openFileDialogPath = new System.Windows.Forms.OpenFileDialog();
+            this.listBoxFiles = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -127,18 +127,6 @@
             this.aProposToolStripMenuItem.Text = "&A propos";
             this.aProposToolStripMenuItem.Click += new System.EventHandler(this.aProposToolStripMenuItem_Click);
             // 
-            // listViewFiles
-            // 
-            this.listViewFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listViewFiles.HideSelection = false;
-            this.listViewFiles.Location = new System.Drawing.Point(6, 23);
-            this.listViewFiles.Name = "listViewFiles";
-            this.listViewFiles.Size = new System.Drawing.Size(214, 509);
-            this.listViewFiles.TabIndex = 4;
-            this.listViewFiles.UseCompatibleStateImageBehavior = false;
-            // 
             // buttonRunScript
             // 
             this.buttonRunScript.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -154,8 +142,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.listBoxFiles);
             this.groupBox1.Controls.Add(this.buttonImport);
-            this.groupBox1.Controls.Add(this.listViewFiles);
             this.groupBox1.Location = new System.Drawing.Point(12, 54);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(226, 567);
@@ -172,6 +160,7 @@
             this.buttonImport.TabIndex = 11;
             this.buttonImport.Text = "Importer des fichiers";
             this.buttonImport.UseVisualStyleBackColor = true;
+            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
             // 
             // groupBox3
             // 
@@ -386,6 +375,16 @@
             this.openFileDialogPath.RestoreDirectory = true;
             this.openFileDialogPath.ValidateNames = false;
             // 
+            // listBoxFiles
+            // 
+            this.listBoxFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.listBoxFiles.FormattingEnabled = true;
+            this.listBoxFiles.Location = new System.Drawing.Point(6, 23);
+            this.listBoxFiles.Name = "listBoxFiles";
+            this.listBoxFiles.Size = new System.Drawing.Size(214, 511);
+            this.listBoxFiles.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -429,7 +428,6 @@
         private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aProposToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem afficherLesDétailsToolStripMenuItem;
-        private System.Windows.Forms.ListView listViewFiles;
         private System.Windows.Forms.Button buttonRunScript;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -453,6 +451,7 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button buttonImport;
         private System.Windows.Forms.OpenFileDialog openFileDialogPath;
+        private System.Windows.Forms.ListBox listBoxFiles;
     }
 }
 
