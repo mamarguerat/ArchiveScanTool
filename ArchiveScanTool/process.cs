@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
 using System.Data.OleDb;
+using System.Windows.Forms;
 
 namespace ArchiveScanTool
 {
@@ -28,7 +29,6 @@ namespace ArchiveScanTool
                     //string newPath = "\\TERMINAL\\Data\\Chantiers\\" + folder[0] + "\\" + folder[1] + "\\" + folder[2] + "\\" + newFileName;
                     string newPath = path + "\\ok\\" + newFileName;
                     int temp;
-                    //Check folder
 
                     //Check file
                     if (int.TryParse(folder[1], out temp) && int.TryParse(folder[2], out temp))
@@ -39,6 +39,10 @@ namespace ArchiveScanTool
                         }
                         else
                         {
+                            //Check folder
+
+                            //Update database
+                            UpdateDataBase(folder);
                             //Move and rename
                             File.Move(file, newPath);
                         }
@@ -73,17 +77,26 @@ namespace ArchiveScanTool
             return folder;
         }
 
-        //private void UpdateDataBase()
-        //{
-        //    OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source = C:\\Users\\marti\\OneDrive\\Documents\\GitHub\\ArchiveScanTool\\ArchiveScanTool\\bin\\Debug\\norddt.accdb");
-        //
-        //    OleDbCommand cmd = con.CreateCommand();
-        //    con.Open();
-        //    cmd.CommandText = "Insert into Student(FirstName,LastName)Values('" + textBox1.Text + "','" + textBox2.Text + "')";
-        //    cmd.Connection = con;
-        //    cmd.ExecuteNonQuery();
-        //    MessageBox.Show("Record Submitted", "Congrats");
-        //    con.Close();
-        //}
+        private void UpdateDataBase(string[] folder)
+        {
+            string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\marti\\OneDrive\\Documents\\GitHub\\ArchiveScanTool\\ArchiveScanTool\\bin\\Debug\\rtecdt.accdb;";
+            try
+            {
+                OleDbConnection con = new OleDbConnection(connectionString);
+                con.Open();
+                OleDbCommand cmd = con.CreateCommand();
+                cmd.Connection = con;
+                string query = "update Cht set Cht_Dossier='num.' ,CHT_BOITEINSTRUCTIONS='num.' where Cht_Numero='" + folder[0] + "." + folder[1] + "." + folder[2] + "'";
+                cmd.CommandText = query;
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Record Submitted", "Congrats");
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

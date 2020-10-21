@@ -25,7 +25,7 @@ namespace ArchiveScanTool
         {
             workingPath = Directory.GetCurrentDirectory();
             textBoxPath.Text = workingPath;
-            //process.ProcessFile();
+            process.ProcessFile();
         }
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
