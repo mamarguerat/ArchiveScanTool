@@ -27,33 +27,45 @@ namespace ArchiveScanTool
                 if (folder[0] != "00")
                 {
                     string newFileName = folder[0] + "." + folder[1] + "." + folder[2] + ".pdf";
-                    //string newPath = "\\TERMINAL\\Data\\Chantiers\\" + folder[0] + "\\" + folder[1] + "\\" + folder[2] + "\\" + newFileName;
-                    string newPath = path + "\\" + newFileName;
+                    //string newPath = @"\\TERMINAL\Data\Chantiers\" + folder[0] + "\\" + folder[1] + "\\" + folder[2] + "\\" + newFileName;
+                    string newPath = path + "\\ok\\" + newFileName;
+                    string errorPath = path + "\\error\\" + newFileName;
                     int temp;
 
                     //Check file
                     if (int.TryParse(folder[1], out temp) && int.TryParse(folder[2], out temp))
                     {
-                        //if (File.Exists(newPath))
-                        //{
-                        //    //error
-                        //}
-                        //else
-                        //{
-                            //Check folder
+                        //Check folder
+                        if (File.Exists(newPath))
+                        {
+                            //error
+                            File.Move(file, errorPath);
+                        }
+                        else
+                        {
+                            string database;
+                            //Control search in database
+                            SearchDataBase(folder, out database);
+                            if (database == "")
+                            {
+                                File.Move(file, errorPath);
+                            }
+                            else
+                            {
+                                //Update database
+                                UpdateDataBase(folder, database);
+                                //Check Path
 
-                            //Update database
-                            //UpdateDataBase(folder, "nord");
-                            SearchDataBase(folder, "nord");
-                        //Move and rename
-                        //    File.Move(file, newPath);
-                        //}
+                                //Move and rename
+                                File.Move(file, newPath);
+                            }
+                        }
                     }
                 }
             }
         }
 
-        private string[] ExtractName(string file, int fileNameLength)
+        string[] ExtractName(string file, int fileNameLength)
         {
             string[] folder = new string[3];
 
@@ -102,31 +114,54 @@ namespace ArchiveScanTool
             }
         }
 
-        private void SearchDataBase(string[] folder, string database)
+        private string SearchDataBase(string[] folder, out string database)
         {
             //string connectionString = "Driver ={ Microsoft Access Driver(*.mdb, *.accdb)}; Dsn=" + database + ";";
-            string connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\marti\OneDrive\Documents\GitHub\ArchiveScanTool\ArchiveScanTool\bin\Debug\rtecdt.accdb; Persist Security Info = False";
-            try
+            database = "rtec";
+            string name = "";
+            name = GetName(folder, database);
+            if (name != "")
             {
-                OleDbConnection con = new OleDbConnection(connectionString);
-                con.Open();
+                MessageBox.Show("Name: " + name, "Found in " + database);
+                return name;
+            }
+            database = "nord";
+            name = GetName(folder, database);
+            if (name != "")
+            {
+                MessageBox.Show("Name: " + name, "Found in " + database);
+                return name;
+            }
+            database = "";
+            return name;
+        }
+
+        private string GetName(string[] folder, string database)
+        {
+            string connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\marti\OneDrive\Documents\GitHub\ArchiveScanTool\ArchiveScanTool\bin\Debug\" + database + "dt.accdb; Persist Security Info = False";
+            string name = "";
+            using (OleDbConnection con = new OleDbConnection(connectionString))
+            {
                 OleDbCommand cmd = con.CreateCommand();
                 cmd.Connection = con;
-                string query = "select * from Cht where Cht_Numero='" + folder[0] + "." + folder[1] + "." + folder[2] + "'";
-                cmd.CommandText = query;
-
-                OleDbDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read())
+                try
                 {
-                    MessageBox.Show("Name: " + rdr["Cht_Nom"].ToString(), "Congrats");
+                    con.Open();
+                    string query = "select * from Cht where Cht_Numero='" + folder[0] + "." + folder[1] + "." + folder[2] + "'";
+                    cmd.CommandText = query;
+
+                    OleDbDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        name = rdr["Cht_Nom"].ToString();
+                    }
                 }
-                MessageBox.Show("Record Submitted", "Congrats");
-                con.Close();
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error " + ex, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error " + ex, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            return name;
         }
     }
 }
