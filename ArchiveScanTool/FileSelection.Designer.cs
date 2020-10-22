@@ -88,6 +88,7 @@
             this.buttonOK.TabIndex = 6;
             this.buttonOK.Text = "&OK";
             this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // buttonCancel
             // 
@@ -104,8 +105,9 @@
             this.listBoxFiles.FormattingEnabled = true;
             this.listBoxFiles.Location = new System.Drawing.Point(13, 33);
             this.listBoxFiles.Name = "listBoxFiles";
-            this.listBoxFiles.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listBoxFiles.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxFiles.Size = new System.Drawing.Size(197, 381);
+            this.listBoxFiles.Sorted = true;
             this.listBoxFiles.TabIndex = 8;
             // 
             // listBoxSelected
@@ -113,8 +115,9 @@
             this.listBoxSelected.FormattingEnabled = true;
             this.listBoxSelected.Location = new System.Drawing.Point(342, 33);
             this.listBoxSelected.Name = "listBoxSelected";
-            this.listBoxSelected.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listBoxSelected.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxSelected.Size = new System.Drawing.Size(197, 381);
+            this.listBoxSelected.Sorted = true;
             this.listBoxSelected.TabIndex = 9;
             // 
             // FileSelection

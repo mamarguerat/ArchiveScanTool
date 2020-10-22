@@ -51,7 +51,7 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.textBoxPath = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonBrowse = new System.Windows.Forms.Button();
             this.textBoxFileName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -291,16 +291,16 @@
             this.textBoxPath.Size = new System.Drawing.Size(752, 20);
             this.textBoxPath.TabIndex = 2;
             // 
-            // button1
+            // buttonBrowse
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(770, 26);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Parcourir...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonBrowse.Location = new System.Drawing.Point(770, 26);
+            this.buttonBrowse.Name = "buttonBrowse";
+            this.buttonBrowse.Size = new System.Drawing.Size(75, 23);
+            this.buttonBrowse.TabIndex = 3;
+            this.buttonBrowse.Text = "Parcourir...";
+            this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
             // 
             // textBoxFileName
             // 
@@ -397,7 +397,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonBrowse);
             this.Controls.Add(this.textBoxPath);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -439,7 +439,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBoxPath;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonBrowse;
         private AxAcroPDFLib.AxAcroPDF axAcroPDF;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonUpdate;

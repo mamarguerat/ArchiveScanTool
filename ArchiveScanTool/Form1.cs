@@ -25,7 +25,7 @@ namespace ArchiveScanTool
         {
             workingPath = Directory.GetCurrentDirectory();
             textBoxPath.Text = workingPath;
-            process.ProcessFile();
+            //process.ProcessFile();
         }
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
@@ -40,16 +40,6 @@ namespace ArchiveScanTool
                 "A propos", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (openFileDialogPath.ShowDialog() == DialogResult.OK)
-            {
-                workingPath = Path.GetDirectoryName(openFileDialogPath.FileName);
-                textBoxPath.Text = workingPath;
-                //Clear file list !!!!!
-            }
-        }
-
         private void buttonImport_Click(object sender, EventArgs e)
         {
             FileSelection fileSelection = new FileSelection();
@@ -60,7 +50,29 @@ namespace ArchiveScanTool
                 fileNames[i] = files[i].Substring(workingPath.Length + 1);
             }
             fileSelection.FileNames = fileNames;
-            fileSelection.ShowDialog();
+            fileSelection.SelectedFiles = new string[listBoxFiles.Items.Count];
+            for (int i = 0; i < listBoxFiles.Items.Count; i++)
+            {
+                fileSelection.SelectedFiles[i] = listBoxFiles.Items[i].ToString();
+            }
+            if (fileSelection.ShowDialog() == DialogResult.OK)
+            {
+                listBoxFiles.Items.Clear();
+                for (int i= 0; i< fileSelection.SelectedFiles.Length;i++)
+                {
+                    listBoxFiles.Items.Add(fileSelection.SelectedFiles[i]);
+                }
+            }
+        }
+
+        private void buttonBrowse_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogPath.ShowDialog() == DialogResult.OK)
+            {
+                workingPath = Path.GetDirectoryName(openFileDialogPath.FileName);
+                textBoxPath.Text = workingPath;
+                //Clear file list !!!!!
+            }
         }
     }
 }
