@@ -15,7 +15,10 @@ namespace ArchiveScanTool
     public partial class Form1 : Form
     {
         List<Folders> folders = new List<Folders>();
-        string workingPath;
+        string workingPath = @"\\TERMINAL\Data\_ScannerTechnique\";
+        string foldersPath = @"\\TERMINAL\Data\chantiers\";
+        string configFile = @"C:\ProgramData\ArchiveScanTool\config.ini";
+        string configPath = @"C:\ProgramData\ArchiveScanTool";
 
         public Form1()
         {
@@ -24,7 +27,21 @@ namespace ArchiveScanTool
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            workingPath = Directory.GetCurrentDirectory();
+            if (File.Exists(configFile))
+            {
+                using (var sr = new StreamReader(configFile))
+                {
+                    workingPath = sr.ReadLine();
+                    workingPath = workingPath.Substring(5);
+                    foldersPath = sr.ReadLine();
+                    foldersPath = foldersPath.Substring(10);
+                }
+            }
+            else
+            {
+                DirectoryInfo di = Directory.CreateDirectory(configPath);
+                SaveFile();
+            }
             textBoxPath.Text = workingPath;
             comboBoxFileType.Items.Add("Général");
             comboBoxFileType.Items.Add("Doc fournisseurs");
@@ -35,6 +52,15 @@ namespace ArchiveScanTool
             comboBoxFileType.Items.Add("Plans de ventilation");
             comboBoxFileType.Items.Add("PV chantier");
             comboBoxFileType.Items.Add("Schéma de principe");
+        }
+
+        private void SaveFile()
+        {
+            using (StreamWriter sw = new StreamWriter(configFile, false))
+            {
+                sw.WriteLine(@"Source:" + workingPath);
+                sw.WriteLine(@"Destination:" + foldersPath);
+            }
         }
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,7 +124,7 @@ namespace ArchiveScanTool
                 }
                 catch
                 {
-
+                    ResetFields();
                 }
             }
         }
@@ -153,8 +179,11 @@ namespace ArchiveScanTool
             if (openFileDialogPath.ShowDialog() == DialogResult.OK)
             {
                 workingPath = Path.GetDirectoryName(openFileDialogPath.FileName);
+                SaveFile();
                 textBoxPath.Text = workingPath;
-                //Clear file list !!!!!
+                folders.Clear();
+                listBoxFiles.Items.Clear();
+                ResetFields();
             }
         }
 
@@ -182,6 +211,7 @@ namespace ArchiveScanTool
                 textBoxDestination.Text = "";
                 textBoxNewFileName.Text = "";
             }
+            axAcroPDF.Visible = true;
             axAcroPDF.src = workingPath + "\\" + selectedFolder.File;
         }
 
@@ -247,5 +277,26 @@ namespace ArchiveScanTool
         {
             UpdateFields();
         }
+
+        private void ResetFields()
+        {
+            textBoxName.Text = "";
+            textBoxFolder.Text = "";
+            textBoxDestination.Text = "";
+            textBoxFileName.Text = "";
+            textBoxNewFileName.Text = "";
+            comboBoxFileType.Text = "";
+            axAcroPDF.Visible = false;
+        }
+
+        private void changerLeDossierDeDestinationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogPath.ShowDialog() == DialogResult.OK)
+            {
+                foldersPath = Path.GetDirectoryName(openFileDialogPath.FileName);
+                SaveFile();
+            }
+        }
     }
+
 }

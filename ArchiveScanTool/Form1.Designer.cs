@@ -60,6 +60,7 @@
             this.textBoxDestination = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.openFileDialogPath = new System.Windows.Forms.OpenFileDialog();
+            this.changerLeDossierDeDestinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -100,7 +101,8 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.afficherLesDétailsToolStripMenuItem});
+            this.afficherLesDétailsToolStripMenuItem,
+            this.changerLeDossierDeDestinationToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "&Options";
@@ -165,10 +167,11 @@
             // 
             // buttonImport
             // 
-            this.buttonImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonImport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonImport.Location = new System.Drawing.Point(6, 631);
             this.buttonImport.Name = "buttonImport";
-            this.buttonImport.Size = new System.Drawing.Size(214, 23);
+            this.buttonImport.Size = new System.Drawing.Size(274, 23);
             this.buttonImport.TabIndex = 11;
             this.buttonImport.Text = "Importer des fichiers";
             this.buttonImport.UseVisualStyleBackColor = true;
@@ -198,6 +201,7 @@
             this.axAcroPDF.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF.OcxState")));
             this.axAcroPDF.Size = new System.Drawing.Size(530, 593);
             this.axAcroPDF.TabIndex = 0;
+            this.axAcroPDF.Visible = false;
             // 
             // label2
             // 
@@ -393,6 +397,13 @@
             this.openFileDialogPath.RestoreDirectory = true;
             this.openFileDialogPath.ValidateNames = false;
             // 
+            // changerLeDossierDeDestinationToolStripMenuItem
+            // 
+            this.changerLeDossierDeDestinationToolStripMenuItem.Name = "changerLeDossierDeDestinationToolStripMenuItem";
+            this.changerLeDossierDeDestinationToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.changerLeDossierDeDestinationToolStripMenuItem.Text = "Changer le dossier de destination";
+            this.changerLeDossierDeDestinationToolStripMenuItem.Click += new System.EventHandler(this.changerLeDossierDeDestinationToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -461,6 +472,7 @@
         private System.Windows.Forms.Button buttonImport;
         private System.Windows.Forms.OpenFileDialog openFileDialogPath;
         private System.Windows.Forms.ListBox listBoxFiles;
+        private System.Windows.Forms.ToolStripMenuItem changerLeDossierDeDestinationToolStripMenuItem;
     }
 }
 
