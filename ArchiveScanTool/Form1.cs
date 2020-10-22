@@ -28,7 +28,13 @@ namespace ArchiveScanTool
             textBoxPath.Text = workingPath;
             comboBoxFileType.Items.Add("Général");
             comboBoxFileType.Items.Add("Doc fournisseurs");
-            //comboBoxFileType.SelectedIndex = comboBoxFileType.FindStringExact("Général");
+            comboBoxFileType.Items.Add("e-mail");
+            comboBoxFileType.Items.Add("Photos");
+            comboBoxFileType.Items.Add("Plans C-S-E");
+            comboBoxFileType.Items.Add("Plans d'architecte");
+            comboBoxFileType.Items.Add("Plans de ventilation");
+            comboBoxFileType.Items.Add("PV chantier");
+            comboBoxFileType.Items.Add("Schéma de principe");
         }
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,7 +81,7 @@ namespace ArchiveScanTool
             foreach (Folders fld in folders)
             {
                 if (fld.Name != "Impossible de trouver l'affaire !")
-                    listBoxFiles.Items.Add(fld.File + " | " + fld.GetFolderName());
+                    listBoxFiles.Items.Add(fld.File + " | " + GetNewName(fld));
                 else
                     listBoxFiles.Items.Add(fld.File);
             }
@@ -154,6 +160,11 @@ namespace ArchiveScanTool
 
         private void listBoxFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
+            UpdateFields();
+        }
+
+        private void UpdateFields()
+        {
             Folders selectedFolder = folders[listBoxFiles.SelectedIndex];
             textBoxName.Text = selectedFolder.Name;
             comboBoxFileType.SelectedIndex = comboBoxFileType.FindStringExact(selectedFolder.FileType);
@@ -176,28 +187,65 @@ namespace ArchiveScanTool
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            UpdateFields();
+            UpdateFolders();
         }
 
         private void textBoxFolder_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Return)
             {
-                UpdateFields();
+                UpdateFolders();
             }
         }
 
-        private void UpdateFields()
+        private void UpdateFolders()
         {
             folders[listBoxFiles.SelectedIndex].FolderName(textBoxFolder.Text);
+            folders[listBoxFiles.SelectedIndex].FileType = comboBoxFileType.Text;
             UpdateList();
+            UpdateFields();
         }
 
         private string GetNewName(Folders folder)
         {
-            return folder.GetFolderName() + ".pdf";
-
+            string extension = "";
             //Switch case from combobox
+            switch (folder.FileType)
+            {
+                case "Général":
+                    extension = "";
+                    break;
+                case "Doc fournisseurs":
+                    extension = "-doc-fournisseurs";
+                    break;
+                case "e - mail":
+                    extension = "-e-mail";
+                    break;
+                case "Photos":
+                    extension = "-photos";
+                    break;
+                case "Plans C-S-E":
+                    extension = "-plans-C-S-E";
+                    break;
+                case "Plans d'architecte":
+                    extension = "-plans-architecte";
+                    break;
+                case "Plans de ventilation":
+                    extension = "-plans-ventilation";
+                    break;
+                case "PV chantier":
+                    extension = "-PV-chantier";
+                    break;
+                case "Schéma de principe":
+                    extension = "-schema-principe";
+                    break;
+            }
+            return folder.GetFolderName() + extension + ".pdf";
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            UpdateFields();
         }
     }
 }

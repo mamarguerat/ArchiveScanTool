@@ -72,7 +72,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 624);
+            this.label1.Location = new System.Drawing.Point(10, 717);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(325, 13);
             this.label1.TabIndex = 0;
@@ -87,7 +87,7 @@
             this.aideToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(828, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1064, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -131,9 +131,9 @@
             // 
             this.buttonRunScript.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRunScript.Location = new System.Drawing.Point(245, 586);
+            this.buttonRunScript.Location = new System.Drawing.Point(304, 679);
             this.buttonRunScript.Name = "buttonRunScript";
-            this.buttonRunScript.Size = new System.Drawing.Size(571, 35);
+            this.buttonRunScript.Size = new System.Drawing.Size(748, 35);
             this.buttonRunScript.TabIndex = 9;
             this.buttonRunScript.Text = "Traiter";
             this.buttonRunScript.UseVisualStyleBackColor = true;
@@ -146,7 +146,7 @@
             this.groupBox1.Controls.Add(this.buttonImport);
             this.groupBox1.Location = new System.Drawing.Point(12, 54);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(226, 567);
+            this.groupBox1.Size = new System.Drawing.Size(286, 660);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Liste des fichiers";
@@ -159,14 +159,14 @@
             this.listBoxFiles.FormattingEnabled = true;
             this.listBoxFiles.Location = new System.Drawing.Point(6, 23);
             this.listBoxFiles.Name = "listBoxFiles";
-            this.listBoxFiles.Size = new System.Drawing.Size(214, 511);
+            this.listBoxFiles.Size = new System.Drawing.Size(274, 602);
             this.listBoxFiles.TabIndex = 12;
             this.listBoxFiles.SelectedIndexChanged += new System.EventHandler(this.listBoxFiles_SelectedIndexChanged);
             // 
             // buttonImport
             // 
             this.buttonImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonImport.Location = new System.Drawing.Point(6, 538);
+            this.buttonImport.Location = new System.Drawing.Point(6, 631);
             this.buttonImport.Name = "buttonImport";
             this.buttonImport.Size = new System.Drawing.Size(214, 23);
             this.buttonImport.TabIndex = 11;
@@ -180,9 +180,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.axAcroPDF);
-            this.groupBox3.Location = new System.Drawing.Point(451, 55);
+            this.groupBox3.Location = new System.Drawing.Point(510, 55);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(365, 525);
+            this.groupBox3.Size = new System.Drawing.Size(542, 618);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Aperçu";
@@ -196,7 +196,7 @@
             this.axAcroPDF.Location = new System.Drawing.Point(6, 19);
             this.axAcroPDF.Name = "axAcroPDF";
             this.axAcroPDF.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF.OcxState")));
-            this.axAcroPDF.Size = new System.Drawing.Size(353, 500);
+            this.axAcroPDF.Size = new System.Drawing.Size(530, 593);
             this.axAcroPDF.TabIndex = 0;
             // 
             // label2
@@ -238,6 +238,7 @@
             this.comboBoxFileType.Name = "comboBoxFileType";
             this.comboBoxFileType.Size = new System.Drawing.Size(187, 21);
             this.comboBoxFileType.TabIndex = 3;
+            this.comboBoxFileType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxFolder_KeyDown);
             // 
             // label3
             // 
@@ -259,9 +260,9 @@
             this.groupBox2.Controls.Add(this.textBoxName);
             this.groupBox2.Controls.Add(this.textBoxFolder);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(245, 55);
+            this.groupBox2.Location = new System.Drawing.Point(304, 55);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 291);
+            this.groupBox2.Size = new System.Drawing.Size(200, 384);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Données";
@@ -274,6 +275,7 @@
             this.buttonCancel.TabIndex = 6;
             this.buttonCancel.Text = "✖";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonUpdate
             // 
@@ -291,13 +293,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPath.Location = new System.Drawing.Point(12, 28);
             this.textBoxPath.Name = "textBoxPath";
-            this.textBoxPath.Size = new System.Drawing.Size(723, 20);
+            this.textBoxPath.Size = new System.Drawing.Size(959, 20);
             this.textBoxPath.TabIndex = 2;
             // 
             // buttonBrowse
             // 
             this.buttonBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBrowse.Location = new System.Drawing.Point(741, 26);
+            this.buttonBrowse.Location = new System.Drawing.Point(977, 26);
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(75, 23);
             this.buttonBrowse.TabIndex = 3;
@@ -376,7 +378,7 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.textBoxNewFileName);
-            this.groupBox4.Location = new System.Drawing.Point(245, 352);
+            this.groupBox4.Location = new System.Drawing.Point(304, 445);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(200, 228);
             this.groupBox4.TabIndex = 10;
@@ -396,7 +398,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(828, 646);
+            this.ClientSize = new System.Drawing.Size(1064, 739);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.buttonRunScript);
             this.Controls.Add(this.groupBox3);
@@ -407,7 +409,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(760, 510);
+            this.MinimumSize = new System.Drawing.Size(1080, 570);
             this.Name = "Form1";
             this.Text = "ArchiveScanTool v0.0.1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
