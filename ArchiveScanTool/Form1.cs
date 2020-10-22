@@ -65,13 +65,17 @@ namespace ArchiveScanTool
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("v0.0.1 - 20201012\r\n" +
+            MessageBox.Show("v0.0.1 - 20201022\r\n" +
                 "\r\n" +
                 "Programme développé par Martin Marguerat pour la société Nordvent SA\r\n" +
                 "\r\n" +
                 "Ce programme permet la gestion de la digitalisation des archives. Il automatise le processur de tri informatique, du changement de nom du fichier ainsi que la mise à jour des informations dans la base de données \"Osiris\"\r\n" +
                 "\r\n" +
-                "© mamarguerat - 2020",
+                "© mamarguerat - 2020\r\n" +
+                "\r\n" +
+                "Support:\r\n" +
+                "✉ martin@marguerat.ch\r\n" +
+                "📞 +41 79 748 86 27",
                 "A propos", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
