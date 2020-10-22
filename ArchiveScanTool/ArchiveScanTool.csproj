@@ -52,13 +52,14 @@
     <Compile Include="FileSelection.Designer.cs">
       <DependentUpon>FileSelection.cs</DependentUpon>
     </Compile>
+    <Compile Include="Folders.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="process.cs" />
+    <Compile Include="Process.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FileSelection.resx">

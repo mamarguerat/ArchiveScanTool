@@ -161,6 +161,7 @@
             this.listBoxFiles.Name = "listBoxFiles";
             this.listBoxFiles.Size = new System.Drawing.Size(214, 511);
             this.listBoxFiles.TabIndex = 12;
+            this.listBoxFiles.SelectedIndexChanged += new System.EventHandler(this.listBoxFiles_SelectedIndexChanged);
             // 
             // buttonImport
             // 
@@ -215,6 +216,7 @@
             this.textBoxFolder.Name = "textBoxFolder";
             this.textBoxFolder.Size = new System.Drawing.Size(131, 20);
             this.textBoxFolder.TabIndex = 1;
+            this.textBoxFolder.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxFolder_KeyDown);
             // 
             // textBoxConstructionName
             // 
@@ -281,6 +283,7 @@
             this.buttonUpdate.TabIndex = 5;
             this.buttonUpdate.Text = "✔";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // textBoxPath
             // 

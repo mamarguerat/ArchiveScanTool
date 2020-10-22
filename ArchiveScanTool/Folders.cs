@@ -21,11 +21,6 @@ namespace ArchiveScanTool
             get { return file; }
             set { file = value; }
         }
-        public string[] Folder
-        {
-            get { return folder; }
-            set { folder = value; }
-        }
         public string FileType
         {
             get { return fileType; }
@@ -37,29 +32,76 @@ namespace ArchiveScanTool
             set { name = value; }
         }
 
-        public string SearchDataBase(string[] folder)
+        public void Update()
         {
-            //string connectionString = "Driver ={ Microsoft Access Driver(*.mdb, *.accdb)}; Dsn=" + database + ";";
-            database = "rtec";
-            string name = "";
-            name = GetName(folder);
-            if (name != "")
+            if (fileType == "")
             {
-                MessageBox.Show("Name: " + name, "Found in " + database);
-                return name;
+                fileType = "Général";
             }
-            database = "nord";
-            name = GetName(folder);
-            if (name != "")
-            {
-                MessageBox.Show("Name: " + name, "Found in " + database);
-                return name;
-            }
-            database = "";
-            return name;
+            SearchDataBase();
         }
 
-        public string GetName(string[] folder)
+        public void FolderName(string folderName)
+        {
+            FolderName(ExtractName(folderName));
+        }
+
+        public void FolderName(string[] folderName)
+        {
+            folder = folderName;
+            Update();
+        }
+
+        private string[] ExtractName(string folderName)
+        {
+            folder = new string[3];
+            int folderNameLength = folderName.Length;
+
+            switch (folderNameLength)
+            {
+                case 15:
+                    folder[0] = folderName.Substring(0, 2);
+                    folder[1] = folderName.Substring(3, 4);
+                    folder[2] = folderName.Substring(8, 3);
+                    break;
+                case 12:
+                    folder[0] = folderName.Substring(0, 2);
+                    folder[1] = folderName.Substring(2, 4);
+                    folder[2] = folderName.Substring(6, 3);
+                    break;
+                default:
+                    folder[0] = "00";
+                    folder[1] = "0000";
+                    folder[2] = "000";
+                    break;
+            }
+            folder[0] = folder[0].ToUpper();
+            return folder;
+        }
+
+        public void SearchDataBase()
+        {
+            if (folder[0] != "" && folder[1] != "" && folder[2] != "")
+            {
+                database = "rtec";
+                string name = "";
+                GetName();
+                if (name != "")
+                {
+                    MessageBox.Show("Name: " + name, "Found in " + database);
+                }
+                database = "nord";
+                GetName();
+                if (name != "")
+                {
+                    MessageBox.Show("Name: " + name, "Found in " + database);
+                }
+            }
+            database = "";
+            name = "Impossible de trouver l'affaire !";
+        }
+
+        private void GetName()
         {
             string connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\marti\OneDrive\Documents\GitHub\ArchiveScanTool\ArchiveScanTool\bin\Debug\" + database + "dt.accdb; Persist Security Info = False";
             string name = "";
@@ -84,7 +126,6 @@ namespace ArchiveScanTool
                     MessageBox.Show("Error " + ex, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            return name;
         }
     }
 }

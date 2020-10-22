@@ -12,7 +12,7 @@ using System.Xml;
 
 namespace ArchiveScanTool
 {
-    class process
+    class Process
     {
         public void ProcessFile()
         {

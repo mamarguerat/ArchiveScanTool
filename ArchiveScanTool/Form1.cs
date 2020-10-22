@@ -14,8 +14,9 @@ namespace ArchiveScanTool
 {
     public partial class Form1 : Form
     {
+        List<Folders> folders = new List<Folders>();
         string workingPath;
-        process process = new process();
+        
         public Form1()
         {
             InitializeComponent();
@@ -25,7 +26,6 @@ namespace ArchiveScanTool
         {
             workingPath = Directory.GetCurrentDirectory();
             textBoxPath.Text = workingPath;
-            //process.ProcessFile();
         }
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace ArchiveScanTool
             FileSelection fileSelection = new FileSelection();
             string[] files = Directory.GetFiles(workingPath, "*.pdf");
             string[] fileNames = new string[files.Length];
-            for (int i= 0; i<files.Length;i++)
+            for (int i = 0; i < files.Length; i++)
             {
                 fileNames[i] = files[i].Substring(workingPath.Length + 1);
             }
@@ -58,7 +58,10 @@ namespace ArchiveScanTool
             if (fileSelection.ShowDialog() == DialogResult.OK)
             {
                 listBoxFiles.Items.Clear();
-                for (int i= 0; i< fileSelection.SelectedFiles.Length;i++)
+
+
+
+                for (int i = 0; i < fileSelection.SelectedFiles.Length; i++)
                 {
                     listBoxFiles.Items.Add(fileSelection.SelectedFiles[i]);
                 }
@@ -73,6 +76,29 @@ namespace ArchiveScanTool
                 textBoxPath.Text = workingPath;
                 //Clear file list !!!!!
             }
+        }
+
+        private void listBoxFiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            UpdateFields();
+        }
+
+        private void textBoxFolder_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                UpdateFields();
+            }
+        }
+
+        private void UpdateFields()
+        {
+            MessageBox.Show("Update");
         }
     }
 }

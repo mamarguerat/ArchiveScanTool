@@ -138,6 +138,7 @@
             this.MaximumSize = new System.Drawing.Size(570, 500);
             this.MinimumSize = new System.Drawing.Size(570, 500);
             this.Name = "FileSelection";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Séléction de fichiers";
             this.Load += new System.EventHandler(this.FileSelection_Load);
             this.ResumeLayout(false);
