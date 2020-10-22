@@ -38,6 +38,7 @@
             this.aProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonRunScript = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBoxFiles = new System.Windows.Forms.ListBox();
             this.buttonImport = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.axAcroPDF = new AxAcroPDFLib.AxAcroPDF();
@@ -59,7 +60,6 @@
             this.textBoxDestination = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.openFileDialogPath = new System.Windows.Forms.OpenFileDialog();
-            this.listBoxFiles = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -151,9 +151,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Liste des fichiers";
             // 
+            // listBoxFiles
+            // 
+            this.listBoxFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxFiles.FormattingEnabled = true;
+            this.listBoxFiles.Location = new System.Drawing.Point(6, 23);
+            this.listBoxFiles.Name = "listBoxFiles";
+            this.listBoxFiles.Size = new System.Drawing.Size(214, 511);
+            this.listBoxFiles.TabIndex = 12;
+            // 
             // buttonImport
             // 
-            this.buttonImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonImport.Location = new System.Drawing.Point(6, 538);
             this.buttonImport.Name = "buttonImport";
             this.buttonImport.Size = new System.Drawing.Size(214, 23);
@@ -184,7 +195,7 @@
             this.axAcroPDF.Location = new System.Drawing.Point(6, 19);
             this.axAcroPDF.Name = "axAcroPDF";
             this.axAcroPDF.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF.OcxState")));
-            this.axAcroPDF.Size = new System.Drawing.Size(382, 500);
+            this.axAcroPDF.Size = new System.Drawing.Size(382, 532);
             this.axAcroPDF.TabIndex = 0;
             // 
             // label2
@@ -374,16 +385,6 @@
             this.openFileDialogPath.Filter = "Dossiers |*..";
             this.openFileDialogPath.RestoreDirectory = true;
             this.openFileDialogPath.ValidateNames = false;
-            // 
-            // listBoxFiles
-            // 
-            this.listBoxFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.listBoxFiles.FormattingEnabled = true;
-            this.listBoxFiles.Location = new System.Drawing.Point(6, 23);
-            this.listBoxFiles.Name = "listBoxFiles";
-            this.listBoxFiles.Size = new System.Drawing.Size(214, 511);
-            this.listBoxFiles.TabIndex = 12;
             // 
             // Form1
             // 
