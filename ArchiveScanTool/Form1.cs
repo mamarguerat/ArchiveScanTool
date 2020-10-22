@@ -27,6 +27,7 @@ namespace ArchiveScanTool
             workingPath = Directory.GetCurrentDirectory();
             textBoxPath.Text = workingPath;
             comboBoxFileType.Items.Add("Général");
+            comboBoxFileType.Items.Add("Doc fournisseurs");
             //comboBoxFileType.SelectedIndex = comboBoxFileType.FindStringExact("Général");
         }
 
@@ -44,8 +45,11 @@ namespace ArchiveScanTool
 
         private void buttonImport_Click(object sender, EventArgs e)
         {
+            //Open file selection Form
             FileSelection fileSelection = new FileSelection();
+            //Listing files available
             string[] files = Directory.GetFiles(workingPath, "*.pdf");
+            //Getting the file name ONLY
             string[] fileNames = new string[files.Length];
             for (int i = 0; i < files.Length; i++)
             {
@@ -66,18 +70,43 @@ namespace ArchiveScanTool
 
         private void UpdateList()
         {
+            int selected = listBoxFiles.SelectedIndex;
             listBoxFiles.Items.Clear();
             foreach (Folders fld in folders)
             {
                 if (fld.Name != "Impossible de trouver l'affaire !")
-                    listBoxFiles.Items.Add(fld.File + " (" + fld.GetFolderName() + ")");
+                    listBoxFiles.Items.Add(fld.File + " | " + fld.GetFolderName());
                 else
                     listBoxFiles.Items.Add(fld.File);
+            }
+            try
+            {
+                listBoxFiles.SelectedIndex = selected != -1 ? selected : 0;
+
+            }
+            catch
+            {
+                try
+                {
+                    listBoxFiles.SelectedIndex = 0;
+                }
+                catch
+                {
+
+                }
             }
         }
 
         private void CompareList(string[] strs)
         {
+            for (int i = 0; i < strs.Length; i++)
+            {
+                if (strs[i].Contains(" | "))
+                {
+                    strs[i] = strs[i].Split('|')[0];
+                    strs[i] = strs[i].Remove(strs[i].Length - 1);
+                }
+            }
             bool brk = false;
             for (int i = 0; i < folders.Count; i++)
             {
@@ -132,8 +161,9 @@ namespace ArchiveScanTool
             if (selectedFolder.Name != "Impossible de trouver l'affaire !")
             {
                 textBoxFolder.Text = selectedFolder.GetFolderName();
-                //textBoxDestination.Text = 
-                //textBoxNewFileName.Text = 
+                string newName = GetNewName(selectedFolder);
+                textBoxDestination.Text = @"\\TERMINAL\Data\Chantiers\" + selectedFolder.GetPath() + "Archives scannées\\" + newName;
+                textBoxNewFileName.Text = newName;
             }
             else
             {
@@ -161,6 +191,13 @@ namespace ArchiveScanTool
         {
             folders[listBoxFiles.SelectedIndex].FolderName(textBoxFolder.Text);
             UpdateList();
+        }
+
+        private string GetNewName(Folders folder)
+        {
+            return folder.GetFolderName() + ".pdf";
+
+            //Switch case from combobox
         }
     }
 }

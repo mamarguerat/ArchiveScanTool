@@ -33,9 +33,19 @@ namespace ArchiveScanTool
 
         private void FileSelection_Load(object sender, EventArgs e)
         {
+            string[] sltFls = new string[selectedFiles.Length];
+            selectedFiles.CopyTo(sltFls, 0);
+            for (int i = 0; i < sltFls.Length; i++)
+            {
+                if (sltFls[i].Contains(" | "))
+                {
+                    sltFls[i] = sltFls[i].Split('|')[0];
+                    sltFls[i] = sltFls[i].Remove(sltFls[i].Length - 1);
+                }
+            }
             foreach (string file in fileNames)
             {
-                if (!selectedFiles.Contains(file))
+                if (!sltFls.Contains(file))
                     listBoxFiles.Items.Add(file);
             }
             foreach (string file in selectedFiles)

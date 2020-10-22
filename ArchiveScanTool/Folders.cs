@@ -64,6 +64,11 @@ namespace ArchiveScanTool
             return folder[0] + "." + folder[1] + "." + folder[2];
         }
 
+        public string GetPath()
+        {
+            return folder[0] + "\\" + folder[1] + "\\" + folder[2] + "\\";
+        }
+
         private string[] ExtractName(string folderName)
         {
             folder = new string[3];
@@ -98,19 +103,11 @@ namespace ArchiveScanTool
                 database = "rtec";
                 name = "";
                 GetName();
-                if (name != "")
-                {
-                    MessageBox.Show("Name: " + name, "Found in " + database);
-                }
-                else
+                if (name == "")
                 {
                     database = "nord";
                     GetName();
-                    if (name != "")
-                    {
-                        MessageBox.Show("Name: " + name, "Found in " + database);
-                    }
-                    else
+                    if (name == "")
                     {
                         database = "";
                         name = "Impossible de trouver l'affaire !";
@@ -141,7 +138,7 @@ namespace ArchiveScanTool
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error " + ex, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error " + ex, "ERROR : Database " + database, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

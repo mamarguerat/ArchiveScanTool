@@ -261,7 +261,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(245, 55);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 352);
+            this.groupBox2.Size = new System.Drawing.Size(200, 291);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Données";
@@ -356,12 +356,14 @@
             // 
             // textBoxDestination
             // 
-            this.textBoxDestination.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxDestination.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxDestination.Location = new System.Drawing.Point(6, 131);
+            this.textBoxDestination.Multiline = true;
             this.textBoxDestination.Name = "textBoxDestination";
             this.textBoxDestination.ReadOnly = true;
-            this.textBoxDestination.Size = new System.Drawing.Size(188, 20);
+            this.textBoxDestination.Size = new System.Drawing.Size(188, 91);
             this.textBoxDestination.TabIndex = 11;
             this.textBoxDestination.Text = "Destination";
             // 
@@ -374,9 +376,9 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.textBoxNewFileName);
-            this.groupBox4.Location = new System.Drawing.Point(245, 413);
+            this.groupBox4.Location = new System.Drawing.Point(245, 352);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 167);
+            this.groupBox4.Size = new System.Drawing.Size(200, 228);
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Informations";
