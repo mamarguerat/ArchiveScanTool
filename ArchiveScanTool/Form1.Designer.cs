@@ -44,7 +44,7 @@
             this.axAcroPDF = new AxAcroPDFLib.AxAcroPDF();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxFolder = new System.Windows.Forms.TextBox();
-            this.textBoxConstructionName = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.comboBoxFileType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -218,16 +218,16 @@
             this.textBoxFolder.TabIndex = 1;
             this.textBoxFolder.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxFolder_KeyDown);
             // 
-            // textBoxConstructionName
+            // textBoxName
             // 
-            this.textBoxConstructionName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxConstructionName.Location = new System.Drawing.Point(6, 45);
-            this.textBoxConstructionName.Name = "textBoxConstructionName";
-            this.textBoxConstructionName.ReadOnly = true;
-            this.textBoxConstructionName.Size = new System.Drawing.Size(188, 20);
-            this.textBoxConstructionName.TabIndex = 2;
-            this.textBoxConstructionName.Text = "Nom du chantier";
+            this.textBoxName.Location = new System.Drawing.Point(6, 45);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.ReadOnly = true;
+            this.textBoxName.Size = new System.Drawing.Size(188, 20);
+            this.textBoxName.TabIndex = 2;
+            this.textBoxName.Text = "Nom du chantier";
             // 
             // comboBoxFileType
             // 
@@ -256,7 +256,7 @@
             this.groupBox2.Controls.Add(this.buttonUpdate);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.comboBoxFileType);
-            this.groupBox2.Controls.Add(this.textBoxConstructionName);
+            this.groupBox2.Controls.Add(this.textBoxName);
             this.groupBox2.Controls.Add(this.textBoxFolder);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(245, 55);
@@ -437,7 +437,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxFolder;
-        private System.Windows.Forms.TextBox textBoxConstructionName;
+        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.ComboBox comboBoxFileType;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;

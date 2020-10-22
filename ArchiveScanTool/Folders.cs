@@ -19,7 +19,6 @@ namespace ArchiveScanTool
         public string File
         {
             get { return file; }
-            set { file = value; }
         }
         public string FileType
         {
@@ -32,9 +31,16 @@ namespace ArchiveScanTool
             set { name = value; }
         }
 
-        public void Update()
+        public Folders(string fileName)
         {
-            if (fileType == "")
+            file = fileName;
+            folder = new string[3];
+            Update();
+        }
+
+        private void Update()
+        {
+            if (fileType == null)
             {
                 fileType = "Général";
             }
@@ -43,13 +49,19 @@ namespace ArchiveScanTool
 
         public void FolderName(string folderName)
         {
-            FolderName(ExtractName(folderName));
+            folder = ExtractName(folderName);
+            Update();
         }
 
         public void FolderName(string[] folderName)
         {
             folder = folderName;
             Update();
+        }
+
+        public string GetFolderName()
+        {
+            return folder[0] + "." + folder[1] + "." + folder[2];
         }
 
         private string[] ExtractName(string folderName)
@@ -59,12 +71,12 @@ namespace ArchiveScanTool
 
             switch (folderNameLength)
             {
-                case 15:
+                case 11:
                     folder[0] = folderName.Substring(0, 2);
                     folder[1] = folderName.Substring(3, 4);
                     folder[2] = folderName.Substring(8, 3);
                     break;
-                case 12:
+                case 9:
                     folder[0] = folderName.Substring(0, 2);
                     folder[1] = folderName.Substring(2, 4);
                     folder[2] = folderName.Substring(6, 3);
@@ -84,27 +96,33 @@ namespace ArchiveScanTool
             if (folder[0] != "" && folder[1] != "" && folder[2] != "")
             {
                 database = "rtec";
-                string name = "";
+                name = "";
                 GetName();
                 if (name != "")
                 {
                     MessageBox.Show("Name: " + name, "Found in " + database);
                 }
-                database = "nord";
-                GetName();
-                if (name != "")
+                else
                 {
-                    MessageBox.Show("Name: " + name, "Found in " + database);
+                    database = "nord";
+                    GetName();
+                    if (name != "")
+                    {
+                        MessageBox.Show("Name: " + name, "Found in " + database);
+                    }
+                    else
+                    {
+                        database = "";
+                        name = "Impossible de trouver l'affaire !";
+                    }
                 }
+
             }
-            database = "";
-            name = "Impossible de trouver l'affaire !";
         }
 
         private void GetName()
         {
             string connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\marti\OneDrive\Documents\GitHub\ArchiveScanTool\ArchiveScanTool\bin\Debug\" + database + "dt.accdb; Persist Security Info = False";
-            string name = "";
             using (OleDbConnection con = new OleDbConnection(connectionString))
             {
                 OleDbCommand cmd = con.CreateCommand();

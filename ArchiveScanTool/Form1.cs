@@ -16,7 +16,7 @@ namespace ArchiveScanTool
     {
         List<Folders> folders = new List<Folders>();
         string workingPath;
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -26,6 +26,8 @@ namespace ArchiveScanTool
         {
             workingPath = Directory.GetCurrentDirectory();
             textBoxPath.Text = workingPath;
+            comboBoxFileType.Items.Add("Général");
+            //comboBoxFileType.SelectedIndex = comboBoxFileType.FindStringExact("Général");
         }
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
@@ -57,14 +59,57 @@ namespace ArchiveScanTool
             }
             if (fileSelection.ShowDialog() == DialogResult.OK)
             {
-                listBoxFiles.Items.Clear();
+                CompareList(fileSelection.SelectedFiles);
+                UpdateList();
+            }
+        }
 
+        private void UpdateList()
+        {
+            listBoxFiles.Items.Clear();
+            foreach (Folders fld in folders)
+            {
+                if (fld.Name != "Impossible de trouver l'affaire !")
+                    listBoxFiles.Items.Add(fld.File + " (" + fld.GetFolderName() + ")");
+                else
+                    listBoxFiles.Items.Add(fld.File);
+            }
+        }
 
-
-                for (int i = 0; i < fileSelection.SelectedFiles.Length; i++)
+        private void CompareList(string[] strs)
+        {
+            bool brk = false;
+            for (int i = 0; i < folders.Count; i++)
+            {
+                for (int j = 0; j < strs.Length; j++)
                 {
-                    listBoxFiles.Items.Add(fileSelection.SelectedFiles[i]);
+                    if (folders[i].File == strs[j])
+                    {
+                        brk = true;
+                        break;
+                    }
                 }
+                if (!brk)
+                {
+                    folders.RemoveAt(i);
+                }
+                brk = false;
+            }
+            for (int i = 0; i < strs.Length; i++)
+            {
+                for (int j = 0; j < folders.Count; j++)
+                {
+                    if (folders[j].File == strs[i])
+                    {
+                        brk = true;
+                        break;
+                    }
+                }
+                if (!brk)
+                {
+                    folders.Add(new Folders(strs[i]));
+                }
+                brk = false;
             }
         }
 
@@ -80,7 +125,22 @@ namespace ArchiveScanTool
 
         private void listBoxFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Folders selectedFolder = folders[listBoxFiles.SelectedIndex];
+            textBoxName.Text = selectedFolder.Name;
+            comboBoxFileType.SelectedIndex = comboBoxFileType.FindStringExact(selectedFolder.FileType);
+            textBoxFileName.Text = selectedFolder.File;
+            if (selectedFolder.Name != "Impossible de trouver l'affaire !")
+            {
+                textBoxFolder.Text = selectedFolder.GetFolderName();
+                //textBoxDestination.Text = 
+                //textBoxNewFileName.Text = 
+            }
+            else
+            {
+                textBoxFolder.Text = "";
+                textBoxDestination.Text = "";
+                textBoxNewFileName.Text = "";
+            }
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
@@ -98,7 +158,8 @@ namespace ArchiveScanTool
 
         private void UpdateFields()
         {
-            MessageBox.Show("Update");
+            folders[listBoxFiles.SelectedIndex].FolderName(textBoxFolder.Text);
+            UpdateList();
         }
     }
 }
