@@ -61,6 +61,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.openFileDialogPath = new System.Windows.Forms.OpenFileDialog();
             this.changerLeDossierDeDestinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -94,6 +95,8 @@
             // 
             // fichierToolStripMenuItem
             // 
+            this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quitterToolStripMenuItem});
             this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
             this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.fichierToolStripMenuItem.Text = "&Fichier";
@@ -401,8 +404,15 @@
             // 
             this.changerLeDossierDeDestinationToolStripMenuItem.Name = "changerLeDossierDeDestinationToolStripMenuItem";
             this.changerLeDossierDeDestinationToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.changerLeDossierDeDestinationToolStripMenuItem.Text = "Changer le dossier de destination";
+            this.changerLeDossierDeDestinationToolStripMenuItem.Text = "&Changer le dossier de destination";
             this.changerLeDossierDeDestinationToolStripMenuItem.Click += new System.EventHandler(this.changerLeDossierDeDestinationToolStripMenuItem_Click);
+            // 
+            // quitterToolStripMenuItem
+            // 
+            this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quitterToolStripMenuItem.Text = "&Quitter";
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -473,6 +483,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialogPath;
         private System.Windows.Forms.ListBox listBoxFiles;
         private System.Windows.Forms.ToolStripMenuItem changerLeDossierDeDestinationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
     }
 }
 

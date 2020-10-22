@@ -32,9 +32,9 @@ namespace ArchiveScanTool
                 using (var sr = new StreamReader(configFile))
                 {
                     workingPath = sr.ReadLine();
-                    workingPath = workingPath.Substring(5);
+                    workingPath = workingPath.Substring(7);
                     foldersPath = sr.ReadLine();
-                    foldersPath = foldersPath.Substring(10);
+                    foldersPath = foldersPath.Substring(12);
                 }
             }
             else
@@ -300,6 +300,11 @@ namespace ArchiveScanTool
                 foldersPath = Path.GetDirectoryName(openFileDialogPath.FileName);
                 SaveFile();
             }
+        }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 
