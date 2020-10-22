@@ -141,6 +141,7 @@ namespace ArchiveScanTool
                 textBoxDestination.Text = "";
                 textBoxNewFileName.Text = "";
             }
+            axAcroPDF.src = workingPath + "\\" + selectedFolder.File;
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)

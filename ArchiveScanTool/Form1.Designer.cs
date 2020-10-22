@@ -87,7 +87,7 @@
             this.aideToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(857, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(828, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -133,7 +133,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonRunScript.Location = new System.Drawing.Point(245, 586);
             this.buttonRunScript.Name = "buttonRunScript";
-            this.buttonRunScript.Size = new System.Drawing.Size(600, 35);
+            this.buttonRunScript.Size = new System.Drawing.Size(571, 35);
             this.buttonRunScript.TabIndex = 9;
             this.buttonRunScript.Text = "Traiter";
             this.buttonRunScript.UseVisualStyleBackColor = true;
@@ -182,7 +182,7 @@
             this.groupBox3.Controls.Add(this.axAcroPDF);
             this.groupBox3.Location = new System.Drawing.Point(451, 55);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(394, 525);
+            this.groupBox3.Size = new System.Drawing.Size(365, 525);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Aperçu";
@@ -196,7 +196,7 @@
             this.axAcroPDF.Location = new System.Drawing.Point(6, 19);
             this.axAcroPDF.Name = "axAcroPDF";
             this.axAcroPDF.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF.OcxState")));
-            this.axAcroPDF.Size = new System.Drawing.Size(382, 532);
+            this.axAcroPDF.Size = new System.Drawing.Size(353, 500);
             this.axAcroPDF.TabIndex = 0;
             // 
             // label2
@@ -291,13 +291,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPath.Location = new System.Drawing.Point(12, 28);
             this.textBoxPath.Name = "textBoxPath";
-            this.textBoxPath.Size = new System.Drawing.Size(752, 20);
+            this.textBoxPath.Size = new System.Drawing.Size(723, 20);
             this.textBoxPath.TabIndex = 2;
             // 
             // buttonBrowse
             // 
             this.buttonBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBrowse.Location = new System.Drawing.Point(770, 26);
+            this.buttonBrowse.Location = new System.Drawing.Point(741, 26);
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(75, 23);
             this.buttonBrowse.TabIndex = 3;
@@ -394,7 +394,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(857, 646);
+            this.ClientSize = new System.Drawing.Size(828, 646);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.buttonRunScript);
             this.Controls.Add(this.groupBox3);
@@ -407,7 +407,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(760, 510);
             this.Name = "Form1";
-            this.Text = "ArchiScanTool v0.0.1";
+            this.Text = "ArchiveScanTool v0.0.1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
