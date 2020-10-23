@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.afficherLesDétailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changerLeDossierDeDestinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonRunScript = new System.Windows.Forms.Button();
@@ -60,8 +61,9 @@
             this.textBoxDestination = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.openFileDialogPath = new System.Windows.Forms.OpenFileDialog();
-            this.changerLeDossierDeDestinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.progressBarScript = new System.Windows.Forms.ProgressBar();
+            this.buttonCancelScript = new System.Windows.Forms.Button();
+            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -69,16 +71,6 @@
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 717);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(325, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Ceci ne fonctionne pas pour le moment... Veuillez repasser plus tard";
             // 
             // menuStrip1
             // 
@@ -101,11 +93,19 @@
             this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.fichierToolStripMenuItem.Text = "&Fichier";
             // 
+            // quitterToolStripMenuItem
+            // 
+            this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.quitterToolStripMenuItem.Text = "&Quitter";
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
+            // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.afficherLesDétailsToolStripMenuItem,
-            this.changerLeDossierDeDestinationToolStripMenuItem});
+            this.changerLeDossierDeDestinationToolStripMenuItem,
+            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "&Options";
@@ -114,8 +114,15 @@
             // 
             this.afficherLesDétailsToolStripMenuItem.CheckOnClick = true;
             this.afficherLesDétailsToolStripMenuItem.Name = "afficherLesDétailsToolStripMenuItem";
-            this.afficherLesDétailsToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.afficherLesDétailsToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.afficherLesDétailsToolStripMenuItem.Text = "Afficher les &détails";
+            // 
+            // changerLeDossierDeDestinationToolStripMenuItem
+            // 
+            this.changerLeDossierDeDestinationToolStripMenuItem.Name = "changerLeDossierDeDestinationToolStripMenuItem";
+            this.changerLeDossierDeDestinationToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.changerLeDossierDeDestinationToolStripMenuItem.Text = "&Changer le dossier de destination";
+            this.changerLeDossierDeDestinationToolStripMenuItem.Click += new System.EventHandler(this.changerLeDossierDeDestinationToolStripMenuItem_Click);
             // 
             // aideToolStripMenuItem
             // 
@@ -142,6 +149,7 @@
             this.buttonRunScript.TabIndex = 9;
             this.buttonRunScript.Text = "Traiter";
             this.buttonRunScript.UseVisualStyleBackColor = true;
+            this.buttonRunScript.Click += new System.EventHandler(this.buttonRunScript_Click);
             // 
             // groupBox1
             // 
@@ -400,19 +408,34 @@
             this.openFileDialogPath.RestoreDirectory = true;
             this.openFileDialogPath.ValidateNames = false;
             // 
-            // changerLeDossierDeDestinationToolStripMenuItem
+            // progressBarScript
             // 
-            this.changerLeDossierDeDestinationToolStripMenuItem.Name = "changerLeDossierDeDestinationToolStripMenuItem";
-            this.changerLeDossierDeDestinationToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.changerLeDossierDeDestinationToolStripMenuItem.Text = "&Changer le dossier de destination";
-            this.changerLeDossierDeDestinationToolStripMenuItem.Click += new System.EventHandler(this.changerLeDossierDeDestinationToolStripMenuItem_Click);
+            this.progressBarScript.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBarScript.Location = new System.Drawing.Point(12, 720);
+            this.progressBarScript.Name = "progressBarScript";
+            this.progressBarScript.Size = new System.Drawing.Size(1040, 10);
+            this.progressBarScript.TabIndex = 11;
             // 
-            // quitterToolStripMenuItem
+            // buttonCancelScript
             // 
-            this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.quitterToolStripMenuItem.Text = "&Quitter";
-            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
+            this.buttonCancelScript.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancelScript.Location = new System.Drawing.Point(304, 679);
+            this.buttonCancelScript.Name = "buttonCancelScript";
+            this.buttonCancelScript.Size = new System.Drawing.Size(748, 35);
+            this.buttonCancelScript.TabIndex = 12;
+            this.buttonCancelScript.Text = "Annuler";
+            this.buttonCancelScript.UseVisualStyleBackColor = true;
+            this.buttonCancelScript.Visible = false;
+            this.buttonCancelScript.Click += new System.EventHandler(this.buttonCancelScript_Click);
+            // 
+            // changerLemplacementDesBasesDeDonnéesToolStripMenuItem
+            // 
+            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem.Name = "changerLemplacementDesBasesDeDonnéesToolStripMenuItem";
+            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem.Size = new System.Drawing.Size(318, 22);
+            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem.Text = "Changer l\'&emplacement des bases de données";
+            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem.Click += new System.EventHandler(this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -420,6 +443,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1064, 739);
+            this.Controls.Add(this.buttonCancelScript);
+            this.Controls.Add(this.progressBarScript);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.buttonRunScript);
             this.Controls.Add(this.groupBox3);
@@ -427,7 +452,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonBrowse);
             this.Controls.Add(this.textBoxPath);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1080, 570);
@@ -450,8 +474,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fichierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
@@ -484,6 +506,9 @@
         private System.Windows.Forms.ListBox listBoxFiles;
         private System.Windows.Forms.ToolStripMenuItem changerLeDossierDeDestinationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
+        private System.Windows.Forms.ProgressBar progressBarScript;
+        private System.Windows.Forms.Button buttonCancelScript;
+        private System.Windows.Forms.ToolStripMenuItem changerLemplacementDesBasesDeDonnéesToolStripMenuItem;
     }
 }
 

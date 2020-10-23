@@ -19,6 +19,9 @@ namespace ArchiveScanTool
         string foldersPath = @"\\TERMINAL\Data\chantiers\";
         string configFile = @"C:\ProgramData\ArchiveScanTool\config.ini";
         string configPath = @"C:\ProgramData\ArchiveScanTool";
+        string databaseNordPath = @"\\TERMINAL\Data\Osiris\nord\norddt.accdb";
+        string databaseRtecPath = @"\\TERMINAL\Data\Osiris\rtec\rtecdt.accdb";
+        bool cancelScript = false;
 
         public Form1()
         {
@@ -35,6 +38,10 @@ namespace ArchiveScanTool
                     workingPath = workingPath.Substring(7);
                     foldersPath = sr.ReadLine();
                     foldersPath = foldersPath.Substring(12);
+                    databaseNordPath = sr.ReadLine();
+                    databaseNordPath = databaseNordPath.Substring(7);
+                    databaseRtecPath = sr.ReadLine();
+                    databaseRtecPath = databaseRtecPath.Substring(7);
                 }
             }
             else
@@ -60,6 +67,8 @@ namespace ArchiveScanTool
             {
                 sw.WriteLine(@"Source:" + workingPath);
                 sw.WriteLine(@"Destination:" + foldersPath);
+                sw.WriteLine(@"norddt:" + databaseNordPath);
+                sw.WriteLine(@"rtecdt:" + databaseRtecPath);
             }
         }
 
@@ -118,7 +127,6 @@ namespace ArchiveScanTool
             try
             {
                 listBoxFiles.SelectedIndex = selected != -1 ? selected : 0;
-
             }
             catch
             {
@@ -157,6 +165,7 @@ namespace ArchiveScanTool
                 if (!brk)
                 {
                     folders.RemoveAt(i);
+                    i--;
                 }
                 brk = false;
             }
@@ -206,7 +215,7 @@ namespace ArchiveScanTool
             {
                 textBoxFolder.Text = selectedFolder.GetFolderName();
                 string newName = GetNewName(selectedFolder);
-                textBoxDestination.Text = @"\\TERMINAL\Data\Chantiers\" + selectedFolder.GetPath() + "Archives scannées\\" + newName;
+                textBoxDestination.Text = foldersPath + "\\" + selectedFolder.GetPath() + "Archives scannées\\" + newName;
                 textBoxNewFileName.Text = newName;
             }
             else
@@ -252,7 +261,7 @@ namespace ArchiveScanTool
                 case "Doc fournisseurs":
                     extension = "-doc-fournisseurs";
                     break;
-                case "e - mail":
+                case "e-mail":
                     extension = "-e-mail";
                     break;
                 case "Photos":
@@ -305,6 +314,82 @@ namespace ArchiveScanTool
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonRunScript_Click(object sender, EventArgs e)
+        {
+            //Afficher ProgressBar
+            listBoxFiles.Enabled = false;
+            textBoxFolder.Enabled = false;
+            textBoxPath.Enabled = false;
+            comboBoxFileType.Enabled = false;
+            buttonCancel.Enabled = false;
+            buttonUpdate.Enabled = false;
+            buttonImport.Enabled = false;
+            buttonBrowse.Enabled = false;
+            buttonCancelScript.Visible = true;
+            buttonRunScript.Visible = false;
+            axAcroPDF.Visible = false;
+            progressBarScript.Maximum = folders.Count();
+            string errorPath = workingPath + "\\error";
+            //pour chaque élément de la liste
+            foreach (Folders fld in folders)
+            {
+                //Trouver le chemin de destination
+                string destination = foldersPath + "\\" + fld.GetPath() + "Archives scannées\\";
+                string fileDestination = destination + GetNewName(fld);
+                string fileSource = workingPath + "\\" + fld.File;
+                //Créer les dossiers s'ils n'existent pas
+                DirectoryInfo di = Directory.CreateDirectory(destination);
+                //Contrôler que le fichier n'y est pas déjà
+                bool error = fld.UpdateDataBase();
+                if (File.Exists(fileDestination) || error)
+                {
+                    //error
+                    DirectoryInfo de = Directory.CreateDirectory(errorPath);
+                    File.Move(fileSource, errorPath + "\\" + fld.File);
+                }
+                else
+                {
+                    //Déplacer le fichier
+                    File.Move(fileSource, fileDestination);
+                }
+                progressBarScript.Increment(1);
+                if (cancelScript)
+                {
+                    break;
+                }
+            }
+            string[] errorFiles = Directory.GetFiles(errorPath, "*.pdf");
+            if (errorFiles == null || errorFiles.Length == 0)
+                MessageBox.Show("Les fichiers on tous étés triés avec succès !", "Terminé", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Certains fichiers rencontrent une erreur. Les fichiers concernés se trouvent dans le dossier \"erreur\" à l'emplacement d'origine", "Terminé avec erreurs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            folders.Clear();
+            listBoxFiles.Enabled = true;
+            textBoxFolder.Enabled = true;
+            textBoxPath.Enabled = true;
+            comboBoxFileType.Enabled = true;
+            buttonCancel.Enabled = true;
+            buttonUpdate.Enabled = true;
+            buttonImport.Enabled = true;
+            buttonBrowse.Enabled = true;
+            buttonRunScript.Visible = true;
+            buttonCancelScript.Visible = false;
+            axAcroPDF.Visible = true;
+            progressBarScript.Value = 0;
+            cancelScript = false;
+            UpdateList();
+        }
+
+        private void buttonCancelScript_Click(object sender, EventArgs e)
+        {
+            cancelScript = true;
+        }
+
+        private void changerLemplacementDesBasesDeDonnéesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

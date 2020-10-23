@@ -98,7 +98,7 @@ namespace ArchiveScanTool
 
         public void SearchDataBase()
         {
-            if (folder[0] != "" && folder[1] != "" && folder[2] != "")
+            if ((folder[0] != "" && folder[1] != "" && folder[2] != "") && (folder[0] != null && folder[1] != null && folder[2] != null))
             {
                 database = "rtec";
                 name = "";
@@ -111,9 +111,15 @@ namespace ArchiveScanTool
                     {
                         database = "";
                         name = "Impossible de trouver l'affaire !";
+                        MessageBox.Show("Ce numéro d'affaire n'existe pas. Veuillez contrôler votre entrée ou créer l'affaire dans OSIRIS\r\n" +
+                            "\r\n" +
+                            "Affaire N°: " + folder[0] + "." + folder[1] + "." + folder[2], "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-
+            }
+            else
+            {
+                name = "Impossible de trouver l'affaire !";
             }
         }
 
@@ -140,6 +146,30 @@ namespace ArchiveScanTool
                 {
                     MessageBox.Show("Error " + ex, "ERROR : Database " + database, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        public bool UpdateDataBase()
+        {
+            string connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\marti\OneDrive\Documents\GitHub\ArchiveScanTool\ArchiveScanTool\bin\Debug\" + database + "dt.accdb; Persist Security Info = False";
+            try
+            {
+                OleDbConnection con = new OleDbConnection(connectionString);
+                con.Open();
+                OleDbCommand cmd = con.CreateCommand();
+                cmd.Connection = con;
+                string query = "update Cht set Cht_Dossier='num.' ,CHT_BOITEINSTRUCTIONS='num.' where Cht_Numero='" + folder[0] + "." + folder[1] + "." + folder[2] + "'";
+                cmd.CommandText = query;
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Record Submitted", "Congrats");
+                con.Close();
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
             }
         }
     }
