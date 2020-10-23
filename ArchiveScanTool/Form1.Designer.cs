@@ -454,6 +454,7 @@
             this.Controls.Add(this.buttonBrowse);
             this.Controls.Add(this.textBoxPath);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1080, 570);
             this.Name = "Form1";

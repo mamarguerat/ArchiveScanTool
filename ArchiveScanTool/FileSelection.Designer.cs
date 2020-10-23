@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileSelection));
             this.buttonSelect = new System.Windows.Forms.Button();
             this.buttonUnselect = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -135,6 +136,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonUnselect);
             this.Controls.Add(this.buttonSelect);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(570, 500);
             this.MinimumSize = new System.Drawing.Size(570, 500);
             this.Name = "FileSelection";

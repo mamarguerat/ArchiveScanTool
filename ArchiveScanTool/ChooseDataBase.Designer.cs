@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseDataBase));
             this.buttonBrowseNord = new System.Windows.Forms.Button();
             this.textBoxPathNord = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -142,6 +143,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonBrowseNord);
             this.Controls.Add(this.textBoxPathNord);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(700, 200);
             this.MinimumSize = new System.Drawing.Size(350, 200);
             this.Name = "ChooseDataBase";
