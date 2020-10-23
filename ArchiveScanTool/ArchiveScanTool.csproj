@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChooseDataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseDataBase.Designer.cs">
+      <DependentUpon>ChooseDataBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="FileSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Process.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChooseDataBase.resx">
+      <DependentUpon>ChooseDataBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FileSelection.resx">
       <DependentUpon>FileSelection.cs</DependentUpon>
     </EmbeddedResource>

@@ -15,6 +15,8 @@ namespace ArchiveScanTool
         private string fileType;
         private string name;
         private string database;
+        private string nordPath;
+        private string rtecPath;
 
         public string File
         {
@@ -30,15 +32,29 @@ namespace ArchiveScanTool
             get { return name; }
             set { name = value; }
         }
+        public string Database
+        {
+            get { return database; }
+        }
+        public string NordPath
+        {
+            set { nordPath = value; }
+        }
+        public string RtecPath
+        {
+            set { rtecPath = value; }
+        }
 
-        public Folders(string fileName)
+        public Folders(string fileName, string nord, string rtec)
         {
             file = fileName;
+            nordPath = nord;
+            rtecPath = rtec;
             folder = new string[3];
             Update();
         }
 
-        private void Update()
+        public void Update()
         {
             if (fileType == null)
             {
@@ -96,7 +112,7 @@ namespace ArchiveScanTool
             return folder;
         }
 
-        public void SearchDataBase()
+        private void SearchDataBase()
         {
             if ((folder[0] != "" && folder[1] != "" && folder[2] != "") && (folder[0] != null && folder[1] != null && folder[2] != null))
             {
@@ -125,7 +141,11 @@ namespace ArchiveScanTool
 
         private void GetName()
         {
-            string connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\marti\OneDrive\Documents\GitHub\ArchiveScanTool\ArchiveScanTool\bin\Debug\" + database + "dt.accdb; Persist Security Info = False";
+            string connectionString = "";
+            if (database == "nord")
+                connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = " + nordPath + "; Persist Security Info = False";
+            else if (database == "rtec")
+                connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = " + rtecPath + "; Persist Security Info = False";
             using (OleDbConnection con = new OleDbConnection(connectionString))
             {
                 OleDbCommand cmd = con.CreateCommand();
@@ -151,25 +171,29 @@ namespace ArchiveScanTool
 
         public bool UpdateDataBase()
         {
-            string connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\Users\marti\OneDrive\Documents\GitHub\ArchiveScanTool\ArchiveScanTool\bin\Debug\" + database + "dt.accdb; Persist Security Info = False";
-            try
+            string connectionString = "";
+            if (database == "nord")
+                connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = " + nordPath + "; Persist Security Info = False";
+            else if (database == "rtec")
+                connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = " + rtecPath + "; Persist Security Info = False";
+            using (OleDbConnection con = new OleDbConnection(connectionString))
             {
-                OleDbConnection con = new OleDbConnection(connectionString);
-                con.Open();
                 OleDbCommand cmd = con.CreateCommand();
                 cmd.Connection = con;
-                string query = "update Cht set Cht_Dossier='num.' ,CHT_BOITEINSTRUCTIONS='num.' where Cht_Numero='" + folder[0] + "." + folder[1] + "." + folder[2] + "'";
-                cmd.CommandText = query;
-
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Record Submitted", "Congrats");
-                con.Close();
-                return false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error " + ex, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return true;
+                try
+                {
+                    con.Open();
+                    string query = "update Cht set Cht_Dossier='num.' ,CHT_BOITEINSTRUCTIONS='num.' where Cht_Numero='" + folder[0] + "." + folder[1] + "." + folder[2] + "'";
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Record Submitted", "Congrats");
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error " + ex, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return true;
+                }
             }
         }
     }

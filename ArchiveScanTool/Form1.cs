@@ -46,7 +46,14 @@ namespace ArchiveScanTool
             }
             else
             {
-                DirectoryInfo di = Directory.CreateDirectory(configPath);
+                try
+                {
+                    DirectoryInfo di = Directory.CreateDirectory(configPath);
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.ToString(), "Erreur - vous n'avez pas les droits d'accès", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 SaveFile();
             }
             textBoxPath.Text = workingPath;
@@ -74,7 +81,7 @@ namespace ArchiveScanTool
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("v0.0.1 - 20201022\r\n" +
+            MessageBox.Show("v1.0.1 - 20201023\r\n" +
                 "\r\n" +
                 "Programme développé par Martin Marguerat pour la société Nordvent SA\r\n" +
                 "\r\n" +
@@ -181,7 +188,7 @@ namespace ArchiveScanTool
                 }
                 if (!brk)
                 {
-                    folders.Add(new Folders(strs[i]));
+                    folders.Add(new Folders(strs[i], databaseNordPath, databaseRtecPath));
                 }
                 brk = false;
             }
@@ -340,24 +347,33 @@ namespace ArchiveScanTool
                 string fileDestination = destination + GetNewName(fld);
                 string fileSource = workingPath + "\\" + fld.File;
                 //Créer les dossiers s'ils n'existent pas
-                DirectoryInfo di = Directory.CreateDirectory(destination);
-                //Contrôler que le fichier n'y est pas déjà
-                bool error = fld.UpdateDataBase();
-                if (File.Exists(fileDestination) || error)
+                try
                 {
-                    //error
+                    DirectoryInfo di = Directory.CreateDirectory(destination);
+                    //Contrôler que le fichier n'y est pas déjà
+                    bool error = fld.UpdateDataBase();
+                    if (File.Exists(fileDestination) || error)
+                    {
+                        //error
+                        DirectoryInfo de = Directory.CreateDirectory(errorPath);
+                        File.Move(fileSource, errorPath + "\\" + fld.File);
+                    }
+                    else
+                    {
+                        //Déplacer le fichier
+                        File.Move(fileSource, fileDestination);
+                    }
+                    progressBarScript.Increment(1);
+                    if (cancelScript)
+                    {
+                        break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Erreur - vous n'avez pas les droits d'accès", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     DirectoryInfo de = Directory.CreateDirectory(errorPath);
                     File.Move(fileSource, errorPath + "\\" + fld.File);
-                }
-                else
-                {
-                    //Déplacer le fichier
-                    File.Move(fileSource, fileDestination);
-                }
-                progressBarScript.Increment(1);
-                if (cancelScript)
-                {
-                    break;
                 }
             }
             string[] errorFiles = Directory.GetFiles(errorPath, "*.pdf");
@@ -389,7 +405,19 @@ namespace ArchiveScanTool
 
         private void changerLemplacementDesBasesDeDonnéesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ChooseDataBase chooseDB = new ChooseDataBase();
+            chooseDB.NordPath = databaseNordPath;
+            chooseDB.RtecPath = databaseRtecPath;
+            if (chooseDB.ShowDialog() == DialogResult.OK)
+            {
+                databaseNordPath = chooseDB.NordPath;
+                databaseRtecPath = chooseDB.RtecPath;
+                foreach (Folders fld in folders)
+                {
+                    fld.NordPath = databaseNordPath;
+                    fld.RtecPath = databaseRtecPath;
+                }
+            }
         }
     }
 
