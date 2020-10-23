@@ -47,7 +47,7 @@
             this.buttonSelect.Name = "buttonSelect";
             this.buttonSelect.Size = new System.Drawing.Size(120, 23);
             this.buttonSelect.TabIndex = 2;
-            this.buttonSelect.Text = "Selectionner -->";
+            this.buttonSelect.Text = "Sélectionner -->";
             this.buttonSelect.UseVisualStyleBackColor = true;
             this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
             // 
@@ -59,7 +59,7 @@
             this.buttonUnselect.Name = "buttonUnselect";
             this.buttonUnselect.Size = new System.Drawing.Size(120, 23);
             this.buttonUnselect.TabIndex = 3;
-            this.buttonUnselect.Text = "<-- Déselectionner";
+            this.buttonUnselect.Text = "<-- Désélectionner";
             this.buttonUnselect.UseVisualStyleBackColor = true;
             this.buttonUnselect.Click += new System.EventHandler(this.buttonUnselect_Click);
             // 

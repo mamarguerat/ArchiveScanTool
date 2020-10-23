@@ -417,6 +417,7 @@ namespace ArchiveScanTool
                     fld.NordPath = databaseNordPath;
                     fld.RtecPath = databaseRtecPath;
                 }
+                SaveFile();
             }
         }
     }
