@@ -17,8 +17,8 @@ namespace ArchiveScanTool
         List<Folders> folders = new List<Folders>();
         string workingPath = @"\\TERMINAL\Data\_ScannerTechnique\";
         string foldersPath = @"\\TERMINAL\Data\chantiers\";
-        string configFile = @"C:\ProgramData\ArchiveScanTool\config.ini";
-        string configPath = @"C:\ProgramData\ArchiveScanTool";
+        string configFile = @"C:\ProgramData\mamarguerat\ArchiveScanTool\config.ini";
+        string configPath = @"C:\ProgramData\mamarguerat\ArchiveScanTool";
         string databaseNordPath = @"\\TERMINAL\Data\Osiris\nord\norddt.accdb";
         string databaseRtecPath = @"\\TERMINAL\Data\Osiris\rtec\rtecdt.accdb";
         bool cancelScript = false;
