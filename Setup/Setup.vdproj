@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_17417D05E0BF48ECB8B5D5719FAA34BF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_4DD75DFC1CF7EBD470E637F9D5A3A947"
         "OwnerKey" = "8:_775288F75E74855C454815126F5187BD"
         "MsmSig" = "8:_UNDEFINED"
@@ -142,6 +148,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_17417D05E0BF48ECB8B5D5719FAA34BF"
+            {
+            "SourcePath" = "8:..\\ArchiveScanTool.pdf"
+            "TargetName" = "8:ArchiveScanTool.pdf"
+            "Tag" = "8:"
+            "Folder" = "8:_05CAF9553F1C4452805CC6C74B528383"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4DD75DFC1CF7EBD470E637F9D5A3A947"
             {
             "AssemblyRegister" = "3:1"
@@ -343,7 +369,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Setup"
         "ProductCode" = "8:{8EC5A0FE-B8D6-44C5-89D6-03E954F4397B}"
-        "PackageCode" = "8:{A180BB11-1435-438D-B431-467F101DE480}"
+        "PackageCode" = "8:{70A40A1B-A05F-40D3-BDB5-F2D480A4004D}"
         "UpgradeCode" = "8:{7ADB4EC4-78EC-4B13-9DFE-04D2C894DFA8}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -489,6 +515,20 @@
             "Folder" = "8:_2E934117834F463CB051BD32E860BC04"
             "WorkingFolder" = "8:_05CAF9553F1C4452805CC6C74B528383"
             "Icon" = "8:_78EE8E61B1674BAEB92DCCA841F705BB"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B8095E0D1FEC4A8E91228B5C506CB744"
+            {
+            "Name" = "8:Documentation"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_17417D05E0BF48ECB8B5D5719FAA34BF"
+            "Folder" = "8:_63219A2C74EF4110BC3012FC857C10B7"
+            "WorkingFolder" = "8:_05CAF9553F1C4452805CC6C74B528383"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }
