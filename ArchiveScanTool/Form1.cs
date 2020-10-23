@@ -15,8 +15,8 @@ namespace ArchiveScanTool
     public partial class Form1 : Form
     {
         List<Folders> folders = new List<Folders>();
-        string workingPath = @"\\TERMINAL\Data\_ScannerTechnique\";
-        string foldersPath = @"\\TERMINAL\Data\chantiers\";
+        string workingPath = @"\\TERMINAL\Data\_ScannerTechnique";
+        string foldersPath = @"\\TERMINAL\Data\chantiers";
         string configFile = @"C:\ProgramData\mamarguerat\ArchiveScanTool\config.ini";
         string configPath = @"C:\ProgramData\mamarguerat\ArchiveScanTool";
         string databaseNordPath = @"\\TERMINAL\Data\Osiris\nord\norddt.accdb";
