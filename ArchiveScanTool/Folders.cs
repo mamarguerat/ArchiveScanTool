@@ -78,7 +78,7 @@ namespace ArchiveScanTool
         public string GetFolderNr()
         {
             if (folder[3] != null && folder[3] != "")
-                return folder[0] + "." + folder[1] + "." + folder[2]  + folder[3];
+                return folder[0] + "." + folder[1] + "." + folder[2] + folder[3];
             else
                 return folder[0] + "." + folder[1] + "." + folder[2]; ;
         }
@@ -157,11 +157,12 @@ namespace ArchiveScanTool
 
         private void GetName()
         {
-            string connectionString = "";
+            string connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = ";
             if (database == "nord")
-                connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = " + nordPath + "; Persist Security Info = False";
+                connectionString += nordPath;
             else if (database == "rtec")
-                connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = " + rtecPath + "; Persist Security Info = False";
+                connectionString += rtecPath;
+            connectionString += "; Persist Security Info = False";
             using (OleDbConnection con = new OleDbConnection(connectionString))
             {
                 OleDbCommand cmd = con.CreateCommand();
@@ -187,11 +188,12 @@ namespace ArchiveScanTool
 
         public bool UpdateDataBase()
         {
-            string connectionString = "";
+            string connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = ";
             if (database == "nord")
-                connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = " + nordPath + "; Persist Security Info = False";
+                connectionString += nordPath;
             else if (database == "rtec")
-                connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = " + rtecPath + "; Persist Security Info = False";
+                connectionString += rtecPath;
+            connectionString += "; Persist Security Info = False";
             using (OleDbConnection con = new OleDbConnection(connectionString))
             {
                 OleDbCommand cmd = con.CreateCommand();
