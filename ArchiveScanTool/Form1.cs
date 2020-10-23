@@ -220,7 +220,7 @@ namespace ArchiveScanTool
             textBoxFileName.Text = selectedFolder.File;
             if (selectedFolder.Name != "Impossible de trouver l'affaire !")
             {
-                textBoxFolder.Text = selectedFolder.GetFolderName();
+                textBoxFolder.Text = selectedFolder.GetFolderNr();
                 string newName = GetNewName(selectedFolder);
                 textBoxDestination.Text = foldersPath + "\\" + selectedFolder.GetPath() + "Archives scannées\\" + newName;
                 textBoxNewFileName.Text = newName;
@@ -290,7 +290,7 @@ namespace ArchiveScanTool
                     extension = "-schema-principe";
                     break;
             }
-            return folder.GetFolderName() + extension + ".pdf";
+            return folder.GetFolderNr() + extension + ".pdf";
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

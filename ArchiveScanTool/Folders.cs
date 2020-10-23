@@ -75,9 +75,12 @@ namespace ArchiveScanTool
             Update();
         }
 
-        public string GetFolderName()
+        public string GetFolderNr()
         {
-            return folder[0] + "." + folder[1] + "." + folder[2];
+            if (folder[3] != null && folder[3] != "")
+                return folder[0] + "." + folder[1] + "." + folder[2]  + folder[3];
+            else
+                return folder[0] + "." + folder[1] + "." + folder[2]; ;
         }
 
         public string GetPath()
@@ -87,15 +90,27 @@ namespace ArchiveScanTool
 
         private string[] ExtractName(string folderName)
         {
-            folder = new string[3];
+            folder = new string[4];
             int folderNameLength = folderName.Length;
 
             switch (folderNameLength)
             {
+                case 12:
+                    folder[0] = folderName.Substring(0, 2);
+                    folder[1] = folderName.Substring(3, 4);
+                    folder[2] = folderName.Substring(8, 3);
+                    folder[3] = folderName.Substring(11, 1);
+                    break;
                 case 11:
                     folder[0] = folderName.Substring(0, 2);
                     folder[1] = folderName.Substring(3, 4);
                     folder[2] = folderName.Substring(8, 3);
+                    break;
+                case 10:
+                    folder[0] = folderName.Substring(0, 2);
+                    folder[1] = folderName.Substring(2, 4);
+                    folder[2] = folderName.Substring(6, 3);
+                    folder[3] = folderName.Substring(9, 1);
                     break;
                 case 9:
                     folder[0] = folderName.Substring(0, 2);
@@ -109,6 +124,7 @@ namespace ArchiveScanTool
                     break;
             }
             folder[0] = folder[0].ToUpper();
+            folder[3] = folder[3].ToUpper();
             return folder;
         }
 
@@ -129,7 +145,7 @@ namespace ArchiveScanTool
                         name = "Impossible de trouver l'affaire !";
                         MessageBox.Show("Ce numéro d'affaire n'existe pas. Veuillez contrôler votre entrée ou créer l'affaire dans OSIRIS\r\n" +
                             "\r\n" +
-                            "Affaire N°: " + folder[0] + "." + folder[1] + "." + folder[2], "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            "Affaire N°: " + GetFolderNr(), "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -153,7 +169,7 @@ namespace ArchiveScanTool
                 try
                 {
                     con.Open();
-                    string query = "select * from Cht where Cht_Numero='" + folder[0] + "." + folder[1] + "." + folder[2] + "'";
+                    string query = "select * from Cht where Cht_Numero='" + GetFolderNr() + "'";
                     cmd.CommandText = query;
 
                     OleDbDataReader rdr = cmd.ExecuteReader();
@@ -183,7 +199,7 @@ namespace ArchiveScanTool
                 try
                 {
                     con.Open();
-                    string query = "update Cht set Cht_Dossier='num.' ,CHT_BOITEINSTRUCTIONS='num.' where Cht_Numero='" + folder[0] + "." + folder[1] + "." + folder[2] + "'";
+                    string query = "update Cht set Cht_Dossier='num.' ,CHT_BOITEINSTRUCTIONS='num.' where Cht_Numero='" + GetFolderNr() + "'";
                     cmd.CommandText = query;
                     cmd.ExecuteNonQuery();
                     return false;
