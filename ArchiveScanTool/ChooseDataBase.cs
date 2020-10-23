@@ -44,7 +44,7 @@ namespace ArchiveScanTool
         {
             if (openFileDialogPath.ShowDialog() == DialogResult.OK)
             {
-                nordPath = Path.GetDirectoryName(openFileDialogPath.FileName);
+                nordPath = openFileDialogPath.FileName;
                 textBoxPathNord.Text = nordPath;
             }
         }
@@ -53,7 +53,7 @@ namespace ArchiveScanTool
         {
             if (openFileDialogPath.ShowDialog() == DialogResult.OK)
             {
-                rtecPath = Path.GetDirectoryName(openFileDialogPath.FileName);
+                rtecPath = openFileDialogPath.FileName;
                 textBoxPathRtec.Text = rtecPath;
             }
         }

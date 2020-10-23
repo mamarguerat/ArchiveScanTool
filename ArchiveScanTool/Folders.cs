@@ -186,7 +186,6 @@ namespace ArchiveScanTool
                     string query = "update Cht set Cht_Dossier='num.' ,CHT_BOITEINSTRUCTIONS='num.' where Cht_Numero='" + folder[0] + "." + folder[1] + "." + folder[2] + "'";
                     cmd.CommandText = query;
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Record Submitted", "Congrats");
                     return false;
                 }
                 catch (Exception ex)
