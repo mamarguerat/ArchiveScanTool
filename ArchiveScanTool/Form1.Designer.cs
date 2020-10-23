@@ -35,6 +35,7 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.afficherLesDétailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changerLeDossierDeDestinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonRunScript = new System.Windows.Forms.Button();
@@ -63,7 +64,6 @@
             this.openFileDialogPath = new System.Windows.Forms.OpenFileDialog();
             this.progressBarScript = new System.Windows.Forms.ProgressBar();
             this.buttonCancelScript = new System.Windows.Forms.Button();
-            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -114,15 +114,23 @@
             // 
             this.afficherLesDétailsToolStripMenuItem.CheckOnClick = true;
             this.afficherLesDétailsToolStripMenuItem.Name = "afficherLesDétailsToolStripMenuItem";
-            this.afficherLesDétailsToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.afficherLesDétailsToolStripMenuItem.Size = new System.Drawing.Size(318, 22);
             this.afficherLesDétailsToolStripMenuItem.Text = "Afficher les &détails";
+            this.afficherLesDétailsToolStripMenuItem.Visible = false;
             // 
             // changerLeDossierDeDestinationToolStripMenuItem
             // 
             this.changerLeDossierDeDestinationToolStripMenuItem.Name = "changerLeDossierDeDestinationToolStripMenuItem";
-            this.changerLeDossierDeDestinationToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.changerLeDossierDeDestinationToolStripMenuItem.Size = new System.Drawing.Size(318, 22);
             this.changerLeDossierDeDestinationToolStripMenuItem.Text = "&Changer le dossier de destination";
             this.changerLeDossierDeDestinationToolStripMenuItem.Click += new System.EventHandler(this.changerLeDossierDeDestinationToolStripMenuItem_Click);
+            // 
+            // changerLemplacementDesBasesDeDonnéesToolStripMenuItem
+            // 
+            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem.Name = "changerLemplacementDesBasesDeDonnéesToolStripMenuItem";
+            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem.Size = new System.Drawing.Size(318, 22);
+            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem.Text = "Changer l\'&emplacement des bases de données";
+            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem.Click += new System.EventHandler(this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem_Click);
             // 
             // aideToolStripMenuItem
             // 
@@ -429,13 +437,6 @@
             this.buttonCancelScript.UseVisualStyleBackColor = true;
             this.buttonCancelScript.Visible = false;
             this.buttonCancelScript.Click += new System.EventHandler(this.buttonCancelScript_Click);
-            // 
-            // changerLemplacementDesBasesDeDonnéesToolStripMenuItem
-            // 
-            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem.Name = "changerLemplacementDesBasesDeDonnéesToolStripMenuItem";
-            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem.Size = new System.Drawing.Size(318, 22);
-            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem.Text = "Changer l\'&emplacement des bases de données";
-            this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem.Click += new System.EventHandler(this.changerLemplacementDesBasesDeDonnéesToolStripMenuItem_Click);
             // 
             // Form1
             // 
