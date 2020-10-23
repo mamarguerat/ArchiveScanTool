@@ -45,6 +45,12 @@ namespace ArchiveScanTool
             set { rtecPath = value; }
         }
 
+        /// <summary>
+        /// Constructor for Folders
+        /// </summary>
+        /// <param name="fileName">pdf's file name</param>
+        /// <param name="nord">norddt.accdb path</param>
+        /// <param name="rtec">rtecdt.accdb path</param>
         public Folders(string fileName, string nord, string rtec)
         {
             file = fileName;
@@ -54,6 +60,9 @@ namespace ArchiveScanTool
             Update();
         }
 
+        /// <summary>
+        /// Update Folders Fields (fileType, name, ...)
+        /// </summary>
         public void Update()
         {
             if (fileType == null)
@@ -63,18 +72,30 @@ namespace ArchiveScanTool
             SearchDataBase();
         }
 
+        /// <summary>
+        /// Add folder name (n°)
+        /// </summary>
+        /// <param name="folderName">folder name (n°) in string format</param>
         public void FolderName(string folderName)
         {
             folder = ExtractName(folderName);
             Update();
         }
 
+        /// <summary>
+        /// Add folder name (n°)
+        /// </summary>
+        /// <param name="folderName">folder name (n°) in string array format</param>
         public void FolderName(string[] folderName)
         {
             folder = folderName;
             Update();
         }
 
+        /// <summary>
+        /// Create a unique string from the string array
+        /// </summary>
+        /// <returns>Folder's name in format R6.2020.028A</returns>
         public string GetFolderNr()
         {
             if (folder[3] != null && folder[3] != "")
@@ -83,11 +104,20 @@ namespace ArchiveScanTool
                 return folder[0] + "." + folder[1] + "." + folder[2]; ;
         }
 
+        /// <summary>
+        /// Return path for the file
+        /// </summary>
+        /// <returns>file's path</returns>
         public string GetPath()
         {
             return folder[0] + "\\" + folder[1] + "\\" + folder[2] + "\\";
         }
 
+        /// <summary>
+        /// Extract the name from a string
+        /// </summary>
+        /// <param name="folderName">folder's name</param>
+        /// <returns>Folder's in string array format</returns>
         private string[] ExtractName(string folderName)
         {
             folder = new string[4];
@@ -128,6 +158,9 @@ namespace ArchiveScanTool
             return folder;
         }
 
+        /// <summary>
+        /// Search folder in database
+        /// </summary>
         private void SearchDataBase()
         {
             if ((folder[0] != "" && folder[1] != "" && folder[2] != "") && (folder[0] != null && folder[1] != null && folder[2] != null))
@@ -155,6 +188,9 @@ namespace ArchiveScanTool
             }
         }
 
+        /// <summary>
+        /// Get the folder's name from database
+        /// </summary>
         private void GetName()
         {
             string connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = ";
@@ -186,6 +222,10 @@ namespace ArchiveScanTool
             }
         }
 
+        /// <summary>
+        /// Update fields in database
+        /// </summary>
+        /// <returns></returns>
         public bool UpdateDataBase()
         {
             string connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = ";
