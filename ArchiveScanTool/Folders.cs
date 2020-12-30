@@ -122,7 +122,6 @@ namespace ArchiveScanTool
         {
             folder = new string[4];
             int folderNameLength = folderName.Length;
-
             switch (folderNameLength)
             {
                 case 12:
@@ -135,6 +134,7 @@ namespace ArchiveScanTool
                     folder[0] = folderName.Substring(0, 2);
                     folder[1] = folderName.Substring(3, 4);
                     folder[2] = folderName.Substring(8, 3);
+                    folder[3] = "";
                     break;
                 case 10:
                     folder[0] = folderName.Substring(0, 2);
@@ -146,11 +146,13 @@ namespace ArchiveScanTool
                     folder[0] = folderName.Substring(0, 2);
                     folder[1] = folderName.Substring(2, 4);
                     folder[2] = folderName.Substring(6, 3);
+                    folder[3] = "";
                     break;
                 default:
                     folder[0] = "00";
                     folder[1] = "0000";
                     folder[2] = "000";
+                    folder[3] = "";
                     break;
             }
             folder[0] = folder[0].ToUpper();

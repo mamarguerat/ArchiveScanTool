@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.IO;
+using System.Xml;
 
 namespace ArchiveScanTool
 {
@@ -17,11 +18,12 @@ namespace ArchiveScanTool
         List<Folders> folders = new List<Folders>();
         string workingPath = @"\\TERMINAL\Data\_ScannerTechnique";
         string foldersPath = @"\\TERMINAL\Data\chantiers";
-        string configFile = @"C:\ProgramData\mamarguerat\ArchiveScanTool\config.ini";
+        string configFile = @"C:\ProgramData\mamarguerat\ArchiveScanTool\config.txt";
         string configPath = @"C:\ProgramData\mamarguerat\ArchiveScanTool";
         string databaseNordPath = @"\\TERMINAL\Data\Osiris\nord\norddt.accdb";
         string databaseRtecPath = @"\\TERMINAL\Data\Osiris\rtec\rtecdt.accdb";
         bool cancelScript = false;
+        string[,] comboboxList;
 
         public Form1()
         {
@@ -42,6 +44,22 @@ namespace ArchiveScanTool
                     databaseNordPath = databaseNordPath.Substring(7);
                     databaseRtecPath = sr.ReadLine();
                     databaseRtecPath = databaseRtecPath.Substring(7);
+                    List<string> filetype = new List<string>();
+                    List<string> filename = new List<string>();
+                    string line = sr.ReadLine();
+                    while (line != null)
+                    {
+                        filetype.Add(line.Substring(11));
+                        line = sr.ReadLine();
+                        filename.Add(line.Substring(11));
+                        line = sr.ReadLine();
+                    }
+                    comboboxList = new string[filetype.Count(), 2];
+                    for (int i = 0; i < filetype.Count(); i++)
+                    {
+                        comboboxList[i, 0] = filetype[i];
+                        comboboxList[i, 1] = filename[i];
+                    }
                 }
             }
             else
@@ -57,15 +75,10 @@ namespace ArchiveScanTool
                 SaveFile();
             }
             textBoxPath.Text = workingPath;
-            comboBoxFileType.Items.Add("Général");
-            comboBoxFileType.Items.Add("Doc fournisseurs");
-            comboBoxFileType.Items.Add("e-mail");
-            comboBoxFileType.Items.Add("Photos");
-            comboBoxFileType.Items.Add("Plans C-S-E");
-            comboBoxFileType.Items.Add("Plans d'architecte");
-            comboBoxFileType.Items.Add("Plans de ventilation");
-            comboBoxFileType.Items.Add("PV chantier");
-            comboBoxFileType.Items.Add("Schéma de principe");
+            for (int i = 0; i < comboboxList.Length / 2; i++)
+            {
+                comboBoxFileType.Items.Add(comboboxList[i, 0]);
+            }
         }
 
         private void SaveFile()
@@ -76,12 +89,50 @@ namespace ArchiveScanTool
                 sw.WriteLine(@"Destination:" + foldersPath);
                 sw.WriteLine(@"norddt:" + databaseNordPath);
                 sw.WriteLine(@"rtecdt:" + databaseRtecPath);
+                string[] list = new string[] {
+                    "00filetype:Commandes-contrats clients",
+                    "00filename:contrat-client.pdf",
+                    "01filetype:Doc fournisseurs",
+                    "01filename:doc-fournisseur.pdf",
+                    "02filetype:Factures clients",
+                    "02filename:facture-client.pdf",
+                    "03filetype:Factures fournisseurs",
+                    "03filename:facture-fournisseur.pdf",
+                    "04filetype:Plans",
+                    "04filename:plan.pdf",
+                    "05filetype:PV chantier",
+                    "05filename:pv-chantier.pdf",
+                    "06filetype:Rapport de travail",
+                    "06filename:rapport-travail.pdf",
+                    "07filetype:Schéma de principe",
+                    "07filename:schema-principe.pdf"};
+                comboboxList = new string[8, 2];
+                comboboxList[0, 0] = "Commandes-contrats clients";
+                comboboxList[0, 1] = "contrat-client.pdf";
+                comboboxList[1, 0] = "Doc fournisseurs";
+                comboboxList[1, 1] = "doc-fournisseur.pdf";
+                comboboxList[2, 0] = "Factures clients";
+                comboboxList[2, 1] = "facture-client.pdf";
+                comboboxList[3, 0] = "Factures fournisseurs";
+                comboboxList[3, 1] = "facture-fournisseur.pdf";
+                comboboxList[4, 0] = "Plans";
+                comboboxList[4, 1] = "plan.pdf";
+                comboboxList[5, 0] = "PV chantier";
+                comboboxList[5, 1] = "pv-chantier.pdf";
+                comboboxList[6, 0] = "Rapport de travail";
+                comboboxList[6, 1] = "rapport-travail.pdf";
+                comboboxList[7, 0] = "Schéma de principe";
+                comboboxList[7, 1] = "schema-principe.pdf";
+                foreach (string element in list)
+                {
+                    sw.WriteLine(element);
+                }
             }
         }
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("v1.0.2 - 20201023\r\n" +
+            MessageBox.Show("v1.1.0 - 20201230\r\n" +
                 "\r\n" +
                 "Programme développé par Martin Marguerat pour la société Nordvent SA\r\n" +
                 "\r\n" +
@@ -259,38 +310,14 @@ namespace ArchiveScanTool
         private string GetNewName(Folders folder)
         {
             string extension = "";
-            //Switch case from combobox
-            switch (folder.FileType)
+            for (int i = 0; i < comboboxList.Length / 2; i++)
             {
-                case "Général":
-                    extension = "";
-                    break;
-                case "Doc fournisseurs":
-                    extension = "-doc-fournisseurs";
-                    break;
-                case "e-mail":
-                    extension = "-e-mail";
-                    break;
-                case "Photos":
-                    extension = "-photos";
-                    break;
-                case "Plans C-S-E":
-                    extension = "-plans-C-S-E";
-                    break;
-                case "Plans d'architecte":
-                    extension = "-plans-architecte";
-                    break;
-                case "Plans de ventilation":
-                    extension = "-plans-ventilation";
-                    break;
-                case "PV chantier":
-                    extension = "-PV-chantier";
-                    break;
-                case "Schéma de principe":
-                    extension = "-schema-principe";
-                    break;
+                if (folder.FileType == comboboxList[i, 0])
+                {
+                    extension += "-" + comboboxList[i, 1];
+                }
             }
-            return folder.GetFolderNr() + extension + ".pdf";
+            return folder.GetFolderNr() + extension;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -376,7 +403,15 @@ namespace ArchiveScanTool
                     File.Move(fileSource, errorPath + "\\" + fld.File);
                 }
             }
-            string[] errorFiles = Directory.GetFiles(errorPath, "*.pdf");
+            string[] errorFiles;
+            try
+            {
+                errorFiles = Directory.GetFiles(errorPath, "*.pdf");
+            }
+            catch (Exception ex)
+            {
+                errorFiles = null;
+            }
             if (errorFiles == null || errorFiles.Length == 0)
                 MessageBox.Show("Les fichiers on tous étés triés avec succès !", "Terminé", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
@@ -396,30 +431,30 @@ namespace ArchiveScanTool
             progressBarScript.Value = 0;
             cancelScript = false;
             UpdateList();
-        }
+            }
 
-        private void buttonCancelScript_Click(object sender, EventArgs e)
-        {
-            cancelScript = true;
-        }
-
-        private void changerLemplacementDesBasesDeDonnéesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ChooseDataBase chooseDB = new ChooseDataBase();
-            chooseDB.NordPath = databaseNordPath;
-            chooseDB.RtecPath = databaseRtecPath;
-            if (chooseDB.ShowDialog() == DialogResult.OK)
+            private void buttonCancelScript_Click(object sender, EventArgs e)
             {
-                databaseNordPath = chooseDB.NordPath;
-                databaseRtecPath = chooseDB.RtecPath;
-                foreach (Folders fld in folders)
+                cancelScript = true;
+            }
+
+            private void changerLemplacementDesBasesDeDonnéesToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                ChooseDataBase chooseDB = new ChooseDataBase();
+                chooseDB.NordPath = databaseNordPath;
+                chooseDB.RtecPath = databaseRtecPath;
+                if (chooseDB.ShowDialog() == DialogResult.OK)
                 {
-                    fld.NordPath = databaseNordPath;
-                    fld.RtecPath = databaseRtecPath;
+                    databaseNordPath = chooseDB.NordPath;
+                    databaseRtecPath = chooseDB.RtecPath;
+                    foreach (Folders fld in folders)
+                    {
+                        fld.NordPath = databaseNordPath;
+                        fld.RtecPath = databaseRtecPath;
+                    }
+                    SaveFile();
                 }
-                SaveFile();
             }
         }
-    }
 
-}
+    }
