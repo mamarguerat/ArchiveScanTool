@@ -79,6 +79,8 @@ namespace ArchiveScanTool
             {
                 comboBoxFileType.Items.Add(comboboxList[i, 0]);
             }
+            this.ActiveControl = textBoxFolder;
+            textBoxFolder.Focus();
         }
 
         private void SaveFile()
@@ -132,13 +134,13 @@ namespace ArchiveScanTool
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("v1.1.0 - 20201230\r\n" +
+            MessageBox.Show("v1.1.1 - 20210121\r\n" +
                 "\r\n" +
                 "Programme développé par Martin Marguerat pour la société Nordvent SA\r\n" +
                 "\r\n" +
                 "Ce programme permet la gestion de la digitalisation des archives. Il automatise le processur de tri informatique, du changement de nom du fichier ainsi que la mise à jour des informations dans la base de données \"Osiris\"\r\n" +
                 "\r\n" +
-                "© mamarguerat - 2020\r\n" +
+                "© mamarguerat - 2020-2021 - martinmarguerat.ch\r\n" +
                 "\r\n" +
                 "Support:\r\n" +
                 "✉ martin@marguerat.ch\r\n" +
@@ -261,6 +263,8 @@ namespace ArchiveScanTool
         private void listBoxFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateFields();
+            textBoxFolder.Select();
+            textBoxFolder.Focus();
         }
 
         private void UpdateFields()
@@ -284,11 +288,15 @@ namespace ArchiveScanTool
             }
             axAcroPDF.Visible = true;
             axAcroPDF.src = workingPath + "\\" + selectedFolder.File;
+            textBoxFolder.Select();
+            textBoxFolder.Focus();
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             UpdateFolders();
+            textBoxFolder.Select();
+            textBoxFolder.Focus();
         }
 
         private void textBoxFolder_KeyDown(object sender, KeyEventArgs e)
@@ -296,6 +304,8 @@ namespace ArchiveScanTool
             if (e.KeyCode == Keys.Return)
             {
                 UpdateFolders();
+                textBoxFolder.Select();
+                textBoxFolder.Focus();
             }
         }
 
@@ -305,6 +315,8 @@ namespace ArchiveScanTool
             folders[listBoxFiles.SelectedIndex].FileType = comboBoxFileType.Text;
             UpdateList();
             UpdateFields();
+            textBoxFolder.Select();
+            textBoxFolder.Focus();
         }
 
         private string GetNewName(Folders folder)
@@ -323,6 +335,8 @@ namespace ArchiveScanTool
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             UpdateFields();
+            textBoxFolder.Select();
+            textBoxFolder.Focus();
         }
 
         private void ResetFields()
@@ -455,6 +469,12 @@ namespace ArchiveScanTool
                     SaveFile();
                 }
             }
+
+        private void axAcroPDF_Validated(object sender, EventArgs e)
+        {
+            textBoxFolder.Select();
+            textBoxFolder.Focus();
         }
+    }
 
     }

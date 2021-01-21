@@ -219,8 +219,10 @@
             this.axAcroPDF.Name = "axAcroPDF";
             this.axAcroPDF.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF.OcxState")));
             this.axAcroPDF.Size = new System.Drawing.Size(530, 593);
-            this.axAcroPDF.TabIndex = 0;
+            this.axAcroPDF.TabIndex = 1;
+            this.axAcroPDF.TabStop = false;
             this.axAcroPDF.Visible = false;
+            this.axAcroPDF.Validated += new System.EventHandler(this.axAcroPDF_Validated);
             // 
             // label2
             // 
@@ -238,7 +240,7 @@
             this.textBoxFolder.Location = new System.Drawing.Point(63, 19);
             this.textBoxFolder.Name = "textBoxFolder";
             this.textBoxFolder.Size = new System.Drawing.Size(131, 20);
-            this.textBoxFolder.TabIndex = 1;
+            this.textBoxFolder.TabIndex = 0;
             this.textBoxFolder.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxFolder_KeyDown);
             // 
             // textBoxName
@@ -458,7 +460,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1080, 570);
             this.Name = "Form1";
-            this.Text = "ArchiveScanTool v1.1.0";
+            this.Text = "ArchiveScanTool v1.1.1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
