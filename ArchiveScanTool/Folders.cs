@@ -243,7 +243,7 @@ namespace ArchiveScanTool
                 try
                 {
                     con.Open();
-                    string query = "update Cht set Cht_Dossier='num.' ,CHT_BOITEINSTRUCTIONS='num.' where Cht_Numero='" + GetFolderNr() + "'";
+                    string query = "update Cht set CHT_BOITEINSTRUCTIONS='num.' where Cht_Numero='" + GetFolderNr() + "'";
                     cmd.CommandText = query;
                     cmd.ExecuteNonQuery();
                     return false;
