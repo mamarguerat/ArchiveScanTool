@@ -134,7 +134,7 @@ namespace ArchiveScanTool
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("v1.1.1 - 20210121\r\n" +
+            MessageBox.Show("v1.2.0 - 20210209\r\n" +
                 "\r\n" +
                 "Programme développé par Martin Marguerat pour la société Nordvent SA\r\n" +
                 "\r\n" +
@@ -445,36 +445,43 @@ namespace ArchiveScanTool
             progressBarScript.Value = 0;
             cancelScript = false;
             UpdateList();
-            }
+        }
 
-            private void buttonCancelScript_Click(object sender, EventArgs e)
-            {
-                cancelScript = true;
-            }
+        private void buttonCancelScript_Click(object sender, EventArgs e)
+        {
+            cancelScript = true;
+        }
 
-            private void changerLemplacementDesBasesDeDonnéesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void changerLemplacementDesBasesDeDonnéesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChooseDataBase chooseDB = new ChooseDataBase();
+            chooseDB.NordPath = databaseNordPath;
+            chooseDB.RtecPath = databaseRtecPath;
+            if (chooseDB.ShowDialog() == DialogResult.OK)
             {
-                ChooseDataBase chooseDB = new ChooseDataBase();
-                chooseDB.NordPath = databaseNordPath;
-                chooseDB.RtecPath = databaseRtecPath;
-                if (chooseDB.ShowDialog() == DialogResult.OK)
+                databaseNordPath = chooseDB.NordPath;
+                databaseRtecPath = chooseDB.RtecPath;
+                foreach (Folders fld in folders)
                 {
-                    databaseNordPath = chooseDB.NordPath;
-                    databaseRtecPath = chooseDB.RtecPath;
-                    foreach (Folders fld in folders)
-                    {
-                        fld.NordPath = databaseNordPath;
-                        fld.RtecPath = databaseRtecPath;
-                    }
-                    SaveFile();
+                    fld.NordPath = databaseNordPath;
+                    fld.RtecPath = databaseRtecPath;
                 }
+                SaveFile();
             }
+        }
 
         private void axAcroPDF_Validated(object sender, EventArgs e)
         {
             textBoxFolder.Select();
             textBoxFolder.Focus();
         }
+
+        private void remiseDesplansEnArchiveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            archive_plans archivePlans = new archive_plans();
+            archivePlans.Path = foldersPath;
+            archivePlans.ShowDialog();
+        }
     }
 
-    }
+}

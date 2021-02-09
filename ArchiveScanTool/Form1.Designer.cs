@@ -64,6 +64,8 @@
             this.openFileDialogPath = new System.Windows.Forms.OpenFileDialog();
             this.progressBarScript = new System.Windows.Forms.ProgressBar();
             this.buttonCancelScript = new System.Windows.Forms.Button();
+            this.outilsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.remiseDesplansEnArchiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -78,6 +80,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fichierToolStripMenuItem,
             this.optionsToolStripMenuItem,
+            this.outilsToolStripMenuItem,
             this.aideToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -96,7 +99,7 @@
             // quitterToolStripMenuItem
             // 
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.quitterToolStripMenuItem.Text = "&Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
@@ -143,7 +146,7 @@
             // aProposToolStripMenuItem
             // 
             this.aProposToolStripMenuItem.Name = "aProposToolStripMenuItem";
-            this.aProposToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.aProposToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aProposToolStripMenuItem.Text = "&A propos";
             this.aProposToolStripMenuItem.Click += new System.EventHandler(this.aProposToolStripMenuItem_Click);
             // 
@@ -440,6 +443,21 @@
             this.buttonCancelScript.Visible = false;
             this.buttonCancelScript.Click += new System.EventHandler(this.buttonCancelScript_Click);
             // 
+            // outilsToolStripMenuItem
+            // 
+            this.outilsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.remiseDesplansEnArchiveToolStripMenuItem});
+            this.outilsToolStripMenuItem.Name = "outilsToolStripMenuItem";
+            this.outilsToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.outilsToolStripMenuItem.Text = "&Outils";
+            // 
+            // remiseDesplansEnArchiveToolStripMenuItem
+            // 
+            this.remiseDesplansEnArchiveToolStripMenuItem.Name = "remiseDesplansEnArchiveToolStripMenuItem";
+            this.remiseDesplansEnArchiveToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.remiseDesplansEnArchiveToolStripMenuItem.Text = "Remise des &plans en archive";
+            this.remiseDesplansEnArchiveToolStripMenuItem.Click += new System.EventHandler(this.remiseDesplansEnArchiveToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -460,7 +478,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1080, 570);
             this.Name = "Form1";
-            this.Text = "ArchiveScanTool v1.1.1";
+            this.Text = "ArchiveScanTool v1.2.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -513,6 +531,8 @@
         private System.Windows.Forms.ProgressBar progressBarScript;
         private System.Windows.Forms.Button buttonCancelScript;
         private System.Windows.Forms.ToolStripMenuItem changerLemplacementDesBasesDeDonnéesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem outilsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem remiseDesplansEnArchiveToolStripMenuItem;
     }
 }
 

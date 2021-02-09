@@ -5,20 +5,30 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchiveScanTool", "ArchiveScanTool\ArchiveScanTool.csproj", "{6561F47A-E2BD-47FE-B7AE-F21999D4607C}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{3F372689-0D7F-467B-AF23-1CA4FD6A0688}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ArchiveScanTool-setup", "Setup\Setup.vdproj", "{3F372689-0D7F-467B-AF23-1CA4FD6A0688}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6561F47A-E2BD-47FE-B7AE-F21999D4607C}.Debug|Any CPU.ActiveCfg = Release|Any CPU
-		{6561F47A-E2BD-47FE-B7AE-F21999D4607C}.Debug|Any CPU.Build.0 = Release|Any CPU
-		{6561F47A-E2BD-47FE-B7AE-F21999D4607C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6561F47A-E2BD-47FE-B7AE-F21999D4607C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6561F47A-E2BD-47FE-B7AE-F21999D4607C}.Debug|Any CPU.ActiveCfg = Release|x86
+		{6561F47A-E2BD-47FE-B7AE-F21999D4607C}.Debug|Any CPU.Build.0 = Release|x86
+		{6561F47A-E2BD-47FE-B7AE-F21999D4607C}.Debug|x86.ActiveCfg = Debug|x86
+		{6561F47A-E2BD-47FE-B7AE-F21999D4607C}.Debug|x86.Build.0 = Debug|x86
+		{6561F47A-E2BD-47FE-B7AE-F21999D4607C}.Release|Any CPU.ActiveCfg = Release|x86
+		{6561F47A-E2BD-47FE-B7AE-F21999D4607C}.Release|Any CPU.Build.0 = Release|x86
+		{6561F47A-E2BD-47FE-B7AE-F21999D4607C}.Release|x86.ActiveCfg = Release|x86
+		{6561F47A-E2BD-47FE-B7AE-F21999D4607C}.Release|x86.Build.0 = Release|x86
 		{3F372689-0D7F-467B-AF23-1CA4FD6A0688}.Debug|Any CPU.ActiveCfg = Debug
+		{3F372689-0D7F-467B-AF23-1CA4FD6A0688}.Debug|x86.ActiveCfg = Debug
+		{3F372689-0D7F-467B-AF23-1CA4FD6A0688}.Debug|x86.Build.0 = Debug
 		{3F372689-0D7F-467B-AF23-1CA4FD6A0688}.Release|Any CPU.ActiveCfg = Release
+		{3F372689-0D7F-467B-AF23-1CA4FD6A0688}.Release|x86.ActiveCfg = Release
+		{3F372689-0D7F-467B-AF23-1CA4FD6A0688}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
