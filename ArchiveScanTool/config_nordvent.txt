@@ -1,0 +1,22 @@
+Source:\\TERMINAL\Data\_ScannerTechnique
+Destination:\\TERMINAL\Data\chantiers
+norddt:\\TERMINAL\Data\Osiris\nord\norddt.accdb
+rtecdt:\\TERMINAL\Data\Osiris\rtec\rtecdt.accdb
+00filetype:Commandes-contrats clients
+00filename:contrat-client.pdf
+01filetype:Devis
+01filename:devis.pdf
+02filetype:Factures clients
+02filename:facture-client.pdf
+03filetype:Factures fournisseurs
+03filename:facture-fournisseur.pdf
+04filetype:Plans
+04filename:plan.pdf
+05filetype:PV chantier
+05filename:pv-chantier.pdf
+06filetype:Rapport de travail
+06filename:rapport-travail.pdf
+07filetype:Schémas électrique
+07filename:schemas-electrique.pdf
+08filetype:Schémas de principe
+08filename:schemas-principe.pdf

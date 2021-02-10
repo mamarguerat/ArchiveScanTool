@@ -107,11 +107,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="archive_plans.cs">
+    <Compile Include="specias_cases.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="archive_plans.Designer.cs">
-      <DependentUpon>archive_plans.cs</DependentUpon>
+    <Compile Include="specias_cases.Designer.cs">
+      <DependentUpon>specias_cases.cs</DependentUpon>
     </Compile>
     <Compile Include="ChooseDataBase.cs">
       <SubType>Form</SubType>
@@ -134,8 +134,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="archive_plans.resx">
-      <DependentUpon>archive_plans.cs</DependentUpon>
+    <EmbeddedResource Include="specias_cases.resx">
+      <DependentUpon>specias_cases.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChooseDataBase.resx">
       <DependentUpon>ChooseDataBase.cs</DependentUpon>

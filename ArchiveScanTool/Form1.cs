@@ -134,7 +134,7 @@ namespace ArchiveScanTool
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("v1.2.0 - 20210209\r\n" +
+            MessageBox.Show("v1.2.1 - 20210210\r\n" +
                 "\r\n" +
                 "Programme développé par Martin Marguerat pour la société Nordvent SA\r\n" +
                 "\r\n" +
@@ -478,9 +478,11 @@ namespace ArchiveScanTool
 
         private void remiseDesplansEnArchiveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            archive_plans archivePlans = new archive_plans();
-            archivePlans.Path = foldersPath;
-            archivePlans.ShowDialog();
+            specias_cases specialCases = new specias_cases();
+            specialCases.Path = foldersPath;
+            specialCases.NordPath = databaseNordPath;
+            specialCases.RtecPath = databaseRtecPath;
+            specialCases.ShowDialog();
         }
     }
 

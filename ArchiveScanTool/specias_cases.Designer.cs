@@ -1,6 +1,6 @@
 ﻿namespace ArchiveScanTool
 {
-    partial class archive_plans
+    partial class specias_cases
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,7 @@
             this.richTextBox_plans = new System.Windows.Forms.RichTextBox();
             this.btn_run = new System.Windows.Forms.Button();
             this.progressBar_progress = new System.Windows.Forms.ProgressBar();
+            this.comboBox_mode = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -39,18 +40,19 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 13);
+            this.label1.Size = new System.Drawing.Size(410, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Mise en forme: [AFFAIRE] \\t [CARTON] \\r\\n";
+            this.label1.Text = "Mise en forme: [AFFAIRE] \\t [CARTON] \\r\\n (pas de carton pour les affaires détrui" +
+    "tes)";
             // 
             // richTextBox_plans
             // 
             this.richTextBox_plans.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox_plans.Location = new System.Drawing.Point(13, 26);
+            this.richTextBox_plans.Location = new System.Drawing.Point(13, 33);
             this.richTextBox_plans.Name = "richTextBox_plans";
-            this.richTextBox_plans.Size = new System.Drawing.Size(775, 370);
+            this.richTextBox_plans.Size = new System.Drawing.Size(775, 363);
             this.richTextBox_plans.TabIndex = 1;
             this.richTextBox_plans.Text = "";
             // 
@@ -75,17 +77,30 @@
             this.progressBar_progress.Size = new System.Drawing.Size(773, 10);
             this.progressBar_progress.TabIndex = 3;
             // 
-            // archive_plans
+            // comboBox_mode
+            // 
+            this.comboBox_mode.FormattingEnabled = true;
+            this.comboBox_mode.Items.AddRange(new object[] {
+            "Plans restants",
+            "Affaires détruites",
+            "Affaires reclassées"});
+            this.comboBox_mode.Location = new System.Drawing.Point(639, 6);
+            this.comboBox_mode.Name = "comboBox_mode";
+            this.comboBox_mode.Size = new System.Drawing.Size(149, 21);
+            this.comboBox_mode.TabIndex = 4;
+            // 
+            // specias_cases
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBox_mode);
             this.Controls.Add(this.progressBar_progress);
             this.Controls.Add(this.btn_run);
             this.Controls.Add(this.richTextBox_plans);
             this.Controls.Add(this.label1);
-            this.Name = "archive_plans";
-            this.Text = "Mise des plans en archive";
+            this.Name = "specias_cases";
+            this.Text = "Cas spéciaux";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,5 +112,6 @@
         private System.Windows.Forms.RichTextBox richTextBox_plans;
         private System.Windows.Forms.Button btn_run;
         private System.Windows.Forms.ProgressBar progressBar_progress;
+        private System.Windows.Forms.ComboBox comboBox_mode;
     }
 }
