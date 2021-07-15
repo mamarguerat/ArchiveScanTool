@@ -478,7 +478,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1080, 570);
             this.Name = "Form1";
-            this.Text = "ArchiveScanTool v1.2.1";
+            this.Text = "ArchiveScanTool v1.2.2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);

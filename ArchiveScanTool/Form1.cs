@@ -134,7 +134,7 @@ namespace ArchiveScanTool
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("v1.2.1 - 20210210\r\n" +
+            MessageBox.Show("v1.2.2 - 20210715\r\n" +
                 "\r\n" +
                 "Programme développé par Martin Marguerat pour la société Nordvent SA\r\n" +
                 "\r\n" +
@@ -186,7 +186,7 @@ namespace ArchiveScanTool
             }
             try
             {
-                listBoxFiles.SelectedIndex = selected != -1 ? selected : 0;
+                listBoxFiles.SelectedIndex = selected != -1 ? selected+1 : 0;
             }
             catch
             {
