@@ -186,7 +186,7 @@ namespace ArchiveScanTool
             }
             try
             {
-                listBoxFiles.SelectedIndex = selected != -1 ? selected+1 : 0;
+                listBoxFiles.SelectedIndex = selected != -1 ? selected + 1 : 0;
             }
             catch
             {
@@ -326,7 +326,14 @@ namespace ArchiveScanTool
             {
                 if (folder.FileType == comboboxList[i, 0])
                 {
-                    extension += "-" + comboboxList[i, 1];
+                    if (comboboxList[i, 0] == ".pdf")
+                    {
+                        extension += comboboxList[i, 0];
+                    }
+                    else
+                    {
+                        extension += "-" + comboboxList[i, 1];
+                    }
                 }
             }
             return folder.GetFolderNr() + extension;
