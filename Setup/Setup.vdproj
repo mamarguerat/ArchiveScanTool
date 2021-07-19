@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_16A8806080F44244A2DD14C99CDF137D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_17417D05E0BF48ECB8B5D5719FAA34BF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -180,6 +186,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_16A8806080F44244A2DD14C99CDF137D"
+            {
+            "SourcePath" = "8:..\\ArchiveScanTool\\MergeMod.dll"
+            "TargetName" = "8:MergeMod.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_05CAF9553F1C4452805CC6C74B528383"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_17417D05E0BF48ECB8B5D5719FAA34BF"
             {
             "SourcePath" = "8:..\\ArchiveScanTool.pdf"
