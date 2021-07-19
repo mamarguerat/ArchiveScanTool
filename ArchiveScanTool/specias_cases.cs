@@ -55,7 +55,7 @@ namespace ArchiveScanTool
                     destination += "Plans non-numérisés dans boîte " + words[1] + ".txt";
                     using (StreamWriter file = new StreamWriter(destination))
                     {
-                        file.WriteLine("ArchiveScanTool v1.2.2 - " + DateTime.Now.ToString("dd/MM/yyyy"));
+                        file.WriteLine("ArchiveScanTool v1.2.4 - " + DateTime.Now.ToString("dd/MM/yyyy"));
                         file.WriteLine("──────────────────────────────────────────────────────────────");
                         file.WriteLine("Les plans plus grand que A3 n'ont pas pu être scannés. Ils se trouvent dans la boîte N°" + words[1]);
                     }

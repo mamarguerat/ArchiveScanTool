@@ -43,6 +43,7 @@
             // buttonBrowseNord
             // 
             this.buttonBrowseNord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonBrowseNord.ForeColor = System.Drawing.SystemColors.WindowText;
             this.buttonBrowseNord.Location = new System.Drawing.Point(555, 25);
             this.buttonBrowseNord.Name = "buttonBrowseNord";
             this.buttonBrowseNord.Size = new System.Drawing.Size(75, 23);
@@ -55,6 +56,8 @@
             // 
             this.textBoxPathNord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPathNord.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBoxPathNord.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.textBoxPathNord.Location = new System.Drawing.Point(12, 27);
             this.textBoxPathNord.Name = "textBoxPathNord";
             this.textBoxPathNord.Size = new System.Drawing.Size(537, 20);
@@ -81,6 +84,7 @@
             // buttonBrowseTec
             // 
             this.buttonBrowseTec.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonBrowseTec.ForeColor = System.Drawing.SystemColors.WindowText;
             this.buttonBrowseTec.Location = new System.Drawing.Point(555, 80);
             this.buttonBrowseTec.Name = "buttonBrowseTec";
             this.buttonBrowseTec.Size = new System.Drawing.Size(75, 23);
@@ -93,6 +97,8 @@
             // 
             this.textBoxPathRtec.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPathRtec.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBoxPathRtec.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.textBoxPathRtec.Location = new System.Drawing.Point(12, 82);
             this.textBoxPathRtec.Name = "textBoxPathRtec";
             this.textBoxPathRtec.Size = new System.Drawing.Size(537, 20);
@@ -101,6 +107,7 @@
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOk.ForeColor = System.Drawing.SystemColors.WindowText;
             this.buttonOk.Location = new System.Drawing.Point(474, 126);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
@@ -113,6 +120,7 @@
             // 
             this.buttonAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonAnnuler.ForeColor = System.Drawing.SystemColors.WindowText;
             this.buttonAnnuler.Location = new System.Drawing.Point(555, 126);
             this.buttonAnnuler.Name = "buttonAnnuler";
             this.buttonAnnuler.Size = new System.Drawing.Size(75, 23);
@@ -133,6 +141,7 @@
             this.AcceptButton = this.buttonOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.CancelButton = this.buttonAnnuler;
             this.ClientSize = new System.Drawing.Size(642, 161);
             this.Controls.Add(this.buttonAnnuler);
@@ -143,6 +152,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonBrowseNord);
             this.Controls.Add(this.textBoxPathNord);
+            this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(700, 200);
             this.MinimumSize = new System.Drawing.Size(350, 200);

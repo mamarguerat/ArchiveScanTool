@@ -45,7 +45,6 @@
             this.listBoxFiles = new System.Windows.Forms.ListBox();
             this.buttonImport = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.axAcroPDF = new AxAcroPDFLib.AxAcroPDF();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxFolder = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -66,17 +65,18 @@
             this.openFileDialogPath = new System.Windows.Forms.OpenFileDialog();
             this.progressBarScript = new System.Windows.Forms.ProgressBar();
             this.buttonCancelScript = new System.Windows.Forms.Button();
+            this.axAcroPDF = new AxAcroPDFLib.AxAcroPDF();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.Menu;
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fichierToolStripMenuItem,
             this.optionsToolStripMenuItem,
@@ -183,6 +183,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.listBoxFiles);
             this.groupBox1.Controls.Add(this.buttonImport);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Location = new System.Drawing.Point(12, 54);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(286, 660);
@@ -195,6 +196,8 @@
             this.listBoxFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxFiles.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.listBoxFiles.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.listBoxFiles.FormattingEnabled = true;
             this.listBoxFiles.Location = new System.Drawing.Point(6, 23);
             this.listBoxFiles.Name = "listBoxFiles";
@@ -206,12 +209,14 @@
             // 
             this.buttonImport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            this.buttonImport.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonImport.Location = new System.Drawing.Point(6, 631);
             this.buttonImport.Name = "buttonImport";
             this.buttonImport.Size = new System.Drawing.Size(274, 23);
             this.buttonImport.TabIndex = 11;
             this.buttonImport.Text = "Importer des fichiers";
-            this.buttonImport.UseVisualStyleBackColor = true;
+            this.buttonImport.UseVisualStyleBackColor = false;
             this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
             // 
             // groupBox3
@@ -220,27 +225,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.axAcroPDF);
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox3.Location = new System.Drawing.Point(510, 55);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(542, 618);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Aperçu";
-            // 
-            // axAcroPDF
-            // 
-            this.axAcroPDF.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.axAcroPDF.Enabled = true;
-            this.axAcroPDF.Location = new System.Drawing.Point(6, 19);
-            this.axAcroPDF.Name = "axAcroPDF";
-            this.axAcroPDF.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF.OcxState")));
-            this.axAcroPDF.Size = new System.Drawing.Size(530, 593);
-            this.axAcroPDF.TabIndex = 1;
-            this.axAcroPDF.TabStop = false;
-            this.axAcroPDF.Visible = false;
-            this.axAcroPDF.Validated += new System.EventHandler(this.axAcroPDF_Validated);
             // 
             // label2
             // 
@@ -255,6 +246,8 @@
             // 
             this.textBoxFolder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxFolder.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBoxFolder.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBoxFolder.Location = new System.Drawing.Point(63, 19);
             this.textBoxFolder.Name = "textBoxFolder";
             this.textBoxFolder.Size = new System.Drawing.Size(131, 20);
@@ -265,6 +258,8 @@
             // 
             this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxName.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBoxName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBoxName.Location = new System.Drawing.Point(6, 45);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.ReadOnly = true;
@@ -276,6 +271,8 @@
             // 
             this.comboBoxFileType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxFileType.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.comboBoxFileType.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.comboBoxFileType.FormattingEnabled = true;
             this.comboBoxFileType.Location = new System.Drawing.Point(7, 117);
             this.comboBoxFileType.Name = "comboBoxFileType";
@@ -303,6 +300,7 @@
             this.groupBox2.Controls.Add(this.textBoxName);
             this.groupBox2.Controls.Add(this.textBoxFolder);
             this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox2.Location = new System.Drawing.Point(304, 55);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 384);
@@ -312,28 +310,34 @@
             // 
             // buttonCancel
             // 
+            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            this.buttonCancel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonCancel.Location = new System.Drawing.Point(171, 144);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(23, 23);
             this.buttonCancel.TabIndex = 6;
             this.buttonCancel.Text = "✖";
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonUpdate
             // 
+            this.buttonUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            this.buttonUpdate.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonUpdate.Location = new System.Drawing.Point(142, 144);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(23, 23);
             this.buttonUpdate.TabIndex = 5;
             this.buttonUpdate.Text = "✔";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.UseVisualStyleBackColor = false;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // textBoxPath
             // 
             this.textBoxPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPath.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBoxPath.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBoxPath.Location = new System.Drawing.Point(12, 28);
             this.textBoxPath.Name = "textBoxPath";
             this.textBoxPath.Size = new System.Drawing.Size(959, 20);
@@ -342,18 +346,22 @@
             // buttonBrowse
             // 
             this.buttonBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonBrowse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            this.buttonBrowse.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonBrowse.Location = new System.Drawing.Point(977, 26);
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(75, 23);
             this.buttonBrowse.TabIndex = 3;
             this.buttonBrowse.Text = "Parcourir...";
-            this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.UseVisualStyleBackColor = false;
             this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
             // 
             // textBoxFileName
             // 
             this.textBoxFileName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxFileName.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBoxFileName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBoxFileName.Location = new System.Drawing.Point(6, 32);
             this.textBoxFileName.Name = "textBoxFileName";
             this.textBoxFileName.ReadOnly = true;
@@ -383,6 +391,8 @@
             // 
             this.textBoxNewFileName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxNewFileName.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBoxNewFileName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBoxNewFileName.Location = new System.Drawing.Point(6, 89);
             this.textBoxNewFileName.Name = "textBoxNewFileName";
             this.textBoxNewFileName.ReadOnly = true;
@@ -404,6 +414,8 @@
             this.textBoxDestination.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxDestination.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.textBoxDestination.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBoxDestination.Location = new System.Drawing.Point(6, 131);
             this.textBoxDestination.Multiline = true;
             this.textBoxDestination.Name = "textBoxDestination";
@@ -421,6 +433,7 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.textBoxNewFileName);
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox4.Location = new System.Drawing.Point(304, 445);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(200, 228);
@@ -449,20 +462,37 @@
             // 
             this.buttonCancelScript.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancelScript.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            this.buttonCancelScript.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonCancelScript.Location = new System.Drawing.Point(304, 679);
             this.buttonCancelScript.Name = "buttonCancelScript";
             this.buttonCancelScript.Size = new System.Drawing.Size(748, 35);
             this.buttonCancelScript.TabIndex = 12;
             this.buttonCancelScript.Text = "Annuler";
-            this.buttonCancelScript.UseVisualStyleBackColor = true;
+            this.buttonCancelScript.UseVisualStyleBackColor = false;
             this.buttonCancelScript.Visible = false;
             this.buttonCancelScript.Click += new System.EventHandler(this.buttonCancelScript_Click);
+            // 
+            // axAcroPDF
+            // 
+            this.axAcroPDF.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.axAcroPDF.Enabled = true;
+            this.axAcroPDF.Location = new System.Drawing.Point(6, 19);
+            this.axAcroPDF.Name = "axAcroPDF";
+            this.axAcroPDF.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF.OcxState")));
+            this.axAcroPDF.Size = new System.Drawing.Size(530, 593);
+            this.axAcroPDF.TabIndex = 1;
+            this.axAcroPDF.TabStop = false;
+            this.axAcroPDF.Visible = false;
+            this.axAcroPDF.Validated += new System.EventHandler(this.axAcroPDF_Validated);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1064, 739);
             this.Controls.Add(this.buttonCancelScript);
             this.Controls.Add(this.progressBarScript);
@@ -474,22 +504,23 @@
             this.Controls.Add(this.buttonBrowse);
             this.Controls.Add(this.textBoxPath);
             this.Controls.Add(this.menuStrip1);
+            this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1080, 570);
             this.Name = "Form1";
-            this.Text = "ArchiveScanTool v1.2.2";
+            this.Text = "ArchiveScanTool v1.2.4";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

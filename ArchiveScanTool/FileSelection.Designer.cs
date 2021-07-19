@@ -43,6 +43,7 @@
             // 
             this.buttonSelect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSelect.ForeColor = System.Drawing.SystemColors.WindowText;
             this.buttonSelect.Location = new System.Drawing.Point(216, 177);
             this.buttonSelect.Name = "buttonSelect";
             this.buttonSelect.Size = new System.Drawing.Size(120, 23);
@@ -55,6 +56,7 @@
             // 
             this.buttonUnselect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUnselect.ForeColor = System.Drawing.SystemColors.WindowText;
             this.buttonUnselect.Location = new System.Drawing.Point(216, 251);
             this.buttonUnselect.Name = "buttonUnselect";
             this.buttonUnselect.Size = new System.Drawing.Size(120, 23);
@@ -83,6 +85,7 @@
             // 
             // buttonOK
             // 
+            this.buttonOK.ForeColor = System.Drawing.SystemColors.WindowText;
             this.buttonOK.Location = new System.Drawing.Point(383, 426);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
@@ -94,6 +97,7 @@
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.ForeColor = System.Drawing.SystemColors.WindowText;
             this.buttonCancel.Location = new System.Drawing.Point(464, 426);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
@@ -103,6 +107,8 @@
             // 
             // listBoxFiles
             // 
+            this.listBoxFiles.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.listBoxFiles.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.listBoxFiles.FormattingEnabled = true;
             this.listBoxFiles.Location = new System.Drawing.Point(13, 33);
             this.listBoxFiles.Name = "listBoxFiles";
@@ -113,6 +119,8 @@
             // 
             // listBoxSelected
             // 
+            this.listBoxSelected.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.listBoxSelected.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.listBoxSelected.FormattingEnabled = true;
             this.listBoxSelected.Location = new System.Drawing.Point(342, 33);
             this.listBoxSelected.Name = "listBoxSelected";
@@ -126,6 +134,7 @@
             this.AcceptButton = this.buttonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(554, 461);
             this.Controls.Add(this.listBoxSelected);
@@ -136,6 +145,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonUnselect);
             this.Controls.Add(this.buttonSelect);
+            this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(570, 500);
             this.MinimumSize = new System.Drawing.Size(570, 500);
