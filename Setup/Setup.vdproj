@@ -27,7 +27,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_61BCE06D64291554D744C2BA0717C04F"
+        "MsmKey" = "8:_58CB73E7DCD768F0CC5858DE45BAC7A1"
         "OwnerKey" = "8:_624EB02F0E9C433CAF474C82044C78DD"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -45,20 +45,20 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_BC534216723A36029C326AFFE66FCE58"
-        "OwnerKey" = "8:_61BCE06D64291554D744C2BA0717C04F"
+        "MsmKey" = "8:_935A9853DF6D96707C24AD9D66BBF7E3"
+        "OwnerKey" = "8:_58CB73E7DCD768F0CC5858DE45BAC7A1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_BC534216723A36029C326AFFE66FCE58"
+        "MsmKey" = "8:_935A9853DF6D96707C24AD9D66BBF7E3"
         "OwnerKey" = "8:_624EB02F0E9C433CAF474C82044C78DD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_DBB6F2DF7A30DF465F4E36EDF2E92A7A"
-        "OwnerKey" = "8:_BC534216723A36029C326AFFE66FCE58"
+        "OwnerKey" = "8:_935A9853DF6D96707C24AD9D66BBF7E3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -76,13 +76,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_61BCE06D64291554D744C2BA0717C04F"
+        "OwnerKey" = "8:_58CB73E7DCD768F0CC5858DE45BAC7A1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BC534216723A36029C326AFFE66FCE58"
+        "OwnerKey" = "8:_935A9853DF6D96707C24AD9D66BBF7E3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -226,14 +226,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_61BCE06D64291554D744C2BA0717C04F"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_58CB73E7DCD768F0CC5858DE45BAC7A1"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:AxInterop.AcroPDFLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_61BCE06D64291554D744C2BA0717C04F"
+                    "_58CB73E7DCD768F0CC5858DE45BAC7A1"
                     {
                     "Name" = "8:AxInterop.AcroPDFLib.dll"
                     "Attributes" = "3:512"
@@ -277,14 +277,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BC534216723A36029C326AFFE66FCE58"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_935A9853DF6D96707C24AD9D66BBF7E3"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Interop.AcroPDFLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_BC534216723A36029C326AFFE66FCE58"
+                    "_935A9853DF6D96707C24AD9D66BBF7E3"
                     {
                     "Name" = "8:Interop.AcroPDFLib.dll"
                     "Attributes" = "3:512"
@@ -426,15 +426,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ArchiveScanTool"
-        "ProductCode" = "8:{603A9FCB-DF50-49F0-91FE-5D2810FC54F0}"
-        "PackageCode" = "8:{192D8983-352A-430F-9C46-8E89D3F36BFA}"
+        "ProductCode" = "8:{ED3F8865-3895-423B-A481-2C00137BBC1F}"
+        "PackageCode" = "8:{6661CBA0-C215-4277-8A43-480CD9766B4B}"
         "UpgradeCode" = "8:{7ADB4EC4-78EC-4B13-9DFE-04D2C894DFA8}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.2.2"
+        "ProductVersion" = "8:1.2.5"
         "Manufacturer" = "8:mamarguerat"
         "ARPHELPTELEPHONE" = "8:+41 79 748 86 27"
         "ARPHELPLINK" = "8:https://martinmarguerat.ch/"
@@ -990,7 +990,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_624EB02F0E9C433CAF474C82044C78DD"
             {
-            "SourcePath" = "8:..\\ArchiveScanTool\\obj\\x86\\Release\\ArchiveScanTool.exe"
+            "SourcePath" = "8:..\\ArchiveScanTool\\obj\\x86\\Debug\\ArchiveScanTool.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_05CAF9553F1C4452805CC6C74B528383"
