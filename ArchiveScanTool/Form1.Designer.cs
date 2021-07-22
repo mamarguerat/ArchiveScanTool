@@ -45,6 +45,7 @@
             this.listBoxFiles = new System.Windows.Forms.ListBox();
             this.buttonImport = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.axAcroPDF = new AxAcroPDFLib.AxAcroPDF();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxFolder = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -65,13 +66,12 @@
             this.openFileDialogPath = new System.Windows.Forms.OpenFileDialog();
             this.progressBarScript = new System.Windows.Forms.ProgressBar();
             this.buttonCancelScript = new System.Windows.Forms.Button();
-            this.axAcroPDF = new AxAcroPDFLib.AxAcroPDF();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -169,6 +169,7 @@
             // 
             this.buttonRunScript.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonRunScript.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonRunScript.Location = new System.Drawing.Point(304, 679);
             this.buttonRunScript.Name = "buttonRunScript";
             this.buttonRunScript.Size = new System.Drawing.Size(748, 35);
@@ -232,6 +233,21 @@
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Aperçu";
+            // 
+            // axAcroPDF
+            // 
+            this.axAcroPDF.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.axAcroPDF.Enabled = true;
+            this.axAcroPDF.Location = new System.Drawing.Point(6, 19);
+            this.axAcroPDF.Name = "axAcroPDF";
+            this.axAcroPDF.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF.OcxState")));
+            this.axAcroPDF.Size = new System.Drawing.Size(530, 593);
+            this.axAcroPDF.TabIndex = 1;
+            this.axAcroPDF.TabStop = false;
+            this.axAcroPDF.Visible = false;
+            this.axAcroPDF.Validated += new System.EventHandler(this.axAcroPDF_Validated);
             // 
             // label2
             // 
@@ -473,21 +489,6 @@
             this.buttonCancelScript.Visible = false;
             this.buttonCancelScript.Click += new System.EventHandler(this.buttonCancelScript_Click);
             // 
-            // axAcroPDF
-            // 
-            this.axAcroPDF.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.axAcroPDF.Enabled = true;
-            this.axAcroPDF.Location = new System.Drawing.Point(6, 19);
-            this.axAcroPDF.Name = "axAcroPDF";
-            this.axAcroPDF.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF.OcxState")));
-            this.axAcroPDF.Size = new System.Drawing.Size(530, 593);
-            this.axAcroPDF.TabIndex = 1;
-            this.axAcroPDF.TabStop = false;
-            this.axAcroPDF.Visible = false;
-            this.axAcroPDF.Validated += new System.EventHandler(this.axAcroPDF_Validated);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,18 +510,18 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1080, 570);
             this.Name = "Form1";
-            this.Text = "ArchiveScanTool v1.2.4";
+            this.Text = "ArchiveScanTool v1.2.5";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -134,7 +134,7 @@ namespace ArchiveScanTool
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("v1.2.4 - 20210719\r\n" +
+            MessageBox.Show("v1.2.5 - 20210721\r\n" +
                 "\r\n" +
                 "Programme développé par Martin Marguerat pour la société Nordvent SA\r\n" +
                 "\r\n" +
@@ -326,9 +326,9 @@ namespace ArchiveScanTool
             {
                 if (folder.FileType == comboboxList[i, 0])
                 {
-                    if (comboboxList[i, 0] == ".pdf")
+                    if (comboboxList[i, 1] == ".pdf")
                     {
-                        extension += comboboxList[i, 0];
+                        extension += comboboxList[i, 1];
                     }
                     else
                     {
