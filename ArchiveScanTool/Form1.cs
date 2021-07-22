@@ -134,7 +134,7 @@ namespace ArchiveScanTool
 
         private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("v1.2.5 - 20210721\r\n" +
+            MessageBox.Show("v1.2.6 - 20210721\r\n" +
                 "\r\n" +
                 "Programme développé par Martin Marguerat pour la société Nordvent SA\r\n" +
                 "\r\n" +

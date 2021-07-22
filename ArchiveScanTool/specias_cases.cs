@@ -43,6 +43,7 @@ namespace ArchiveScanTool
 
         private void btn_run_Click(object sender, EventArgs e)
         {
+            progressBar_progress.Value = 0;
             progressBar_progress.Maximum = richTextBox_plans.Lines.Count();
             if (comboBox_mode.Text == "")
             {
@@ -56,10 +57,10 @@ namespace ArchiveScanTool
                     string[] affaire = ExtractName(words[0]);
                     string path = GetPath(affaire);
                     string destination = folderPath + "\\" + path + "Archives scannées\\";
-                    destination += "Plans non-numérisés dans boîte " + words[1] + ".txt";
-                    using (StreamWriter file = new StreamWriter(destination))
+                    destination += words[0] + "-plans non-numérisés.txt";
+                    using (StreamWriter file = new StreamWriter(destination, false))
                     {
-                        file.WriteLine("ArchiveScanTool v1.2.5 - " + DateTime.Now.ToString("dd/MM/yyyy"));
+                        file.WriteLine("ArchiveScanTool v1.2.6 - " + DateTime.Now.ToString("dd/MM/yyyy"));
                         file.WriteLine("──────────────────────────────────────────────────────────────");
                         file.WriteLine("Les plans plus grand que A3 n'ont pas pu être scannés. Ils se trouvent dans la boîte N°" + words[1]);
                     }
